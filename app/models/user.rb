@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  attr_accessor :remember_token
+
   # Email is always saved as a lowercase string
   before_save { self.email.downcase! }
 
@@ -19,10 +21,38 @@ class User < ApplicationRecord
           presence: true,
           length: {minimum: 6}
 
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
+  # Puts a the user in a presistent session.
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(self.remember_token))
+  end
+
+  # Removes a user from their persistent session.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
+  # Returns true if the given token matches the digest.
+  def authenticated?(remember_token)
+    digest = self.remember_digest
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(remember_token)
+  end
+
+  class << self
+
+    # Return the hash digest of the given string.
+    def digest(string)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
+
+    # Returns a random token, used to remember login with cookies.
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+
   end
 
 end
