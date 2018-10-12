@@ -36,11 +36,23 @@ class User < ApplicationRecord
   end
 
   # Returns true if the given token matches the digest.
-  def authenticated?(remember_token)
-    digest = self.remember_digest
+  # attribute can be :remember, :activation or :reset
+  def authenticated?(attribute, token)
+    digest = self.send("#{attribute}_digest")
     return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(remember_token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
+
+  # Activates an account.
+  def activate
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  # Sends activation email.
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
 
   class << self
 
@@ -60,13 +72,13 @@ class User < ApplicationRecord
 
   private
 
-    def downcase_email
-      self.email.downcase!
-    end
+  def downcase_email
+    self.email.downcase!
+  end
 
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
 end
 
