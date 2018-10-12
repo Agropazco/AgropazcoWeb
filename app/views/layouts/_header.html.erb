@@ -3,7 +3,7 @@
     <%= link_to "Inicio", '#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Inicio", '#' %></li>
+        <li><%= link_to "Inicio", root_path  %></li>
         <% if logged_in? %>
           <li><%= link_to "Usuarios", users_path %></li>
           <li class="dropdown">
