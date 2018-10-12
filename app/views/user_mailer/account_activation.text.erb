@@ -1,0 +1,6 @@
+Hola <%= @user.name %>,
+
+Bienvienido(a) a Agropazco! Haga clic en el siguiente link para activar su cuenta:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+

@@ -1,0 +1,11 @@
+<h1>Agropazco</h1>
+
+<p>Hola <%= @user.name %>,</p>
+
+<p>
+Bienvienido(a) a Agropazco! Haga clic en el siguiente link para activar su cuenta:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
+

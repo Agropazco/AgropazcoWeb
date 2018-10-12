@@ -1,26 +1,28 @@
 class User < ApplicationRecord
 
   attr_accessor :remember_token
+  attr_accessor :activation_token
 
   # Email is always saved as a lowercase string
-  before_save { self.email.downcase! }
+  before_save   :downcase_email
+  before_create :create_activation_digest
 
   validates :name,
-          presence: true,
-          length: {maximum: 50}
+    presence: true,
+    length: {maximum: 50}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email,
-          presence: true,
-          length: {maximum: 255},
-          format: {with: VALID_EMAIL_REGEX},
-          uniqueness: { case_sensitive: false }
+    presence: true,
+    length: {maximum: 255},
+    format: {with: VALID_EMAIL_REGEX},
+    uniqueness: { case_sensitive: false }
 
   has_secure_password
   validates :password,
-          presence: true,
-          length: {minimum: 6},
-          allow_nil: true
+    presence: true,
+    length: {minimum: 6},
+    allow_nil: true
 
   # Puts a the user in a presistent session.
   def remember
@@ -56,5 +58,15 @@ class User < ApplicationRecord
 
   end
 
+  private
+
+    def downcase_email
+      self.email.downcase!
+    end
+
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 end
 
