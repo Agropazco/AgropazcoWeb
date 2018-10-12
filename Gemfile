@@ -79,3 +79,8 @@ gem 'rails-controller-testing'
 
 gem 'jquery-rails'
 
+
+gem 'faker'
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'

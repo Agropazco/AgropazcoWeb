@@ -12,7 +12,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { email: "", pasword: "" } }
     assert_template 'sessions/new'
     assert_not flash.empty?
-#    get root_path
+    # TODO uncomment when home is ready
+#    get root_path 
 #    assert flash.empty?
   end
 
@@ -27,7 +28,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
-
+# TODO uncomment when home is ready
 #    delete logout_path
 #    assert_not logged_in?
 #    assert_redirected_to root_url
@@ -48,6 +49,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
+    # TODO uncomment when home is ready
     #    delete logout_path
     #    assert_not logged_in?
     #    assert_redirected_to root_url
