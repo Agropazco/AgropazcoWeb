@@ -14,8 +14,6 @@ html, body{
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: red;
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
