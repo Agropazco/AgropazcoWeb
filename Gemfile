@@ -19,7 +19,9 @@ group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
 end
 group :production do
-  gem 'pg', '0.18.4' # Heroku
+  gem 'pg', '~> 0.21'
+  gem 'rails_12factor'
+  #gem 'pg', '0.18.4' # Heroku
 end
 
 # Use Puma as the app server

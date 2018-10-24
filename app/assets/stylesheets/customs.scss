@@ -1,9 +1,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*colores
+Rosa          #F78888
+Amarillo      #F3D250
+balcusco      #ECECEC
+azul claro    #90CCF4
+azul chevere  #5DA2D5
+
+html, body{
+  margin: 0px;
+}
+
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
+$gray-medium-light: red;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -13,8 +24,10 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
+html, body {
   padding-top: 60px;
+  background-color: #90CCF4;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 section {
@@ -62,17 +75,36 @@ p {
 
 /* header */
 
+.navbar, .navbar-fixed-top{
+  background-color: #F3D250;
+  color: white;
+  border-bottom: solid #F78888;
+}
+
+
+.link, #link {
+  text-decoration:none;
+  color: #5DA2D5;
+  font-weight: bold;
+  &:hover{
+    background-color: #5DA2D5;
+    color: #ECECEC;
+  }
+}
+
+
 #logo {
   float: left;
-  margin-right: 10px;
+  margin-right: 9px;
   font-size: 1.7em;
-  color: white;
+  color: #5DA2D5;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 10px;
   font-weight: bold;
+
   &:hover {
-    color: white;
+    color: #ECECEC;
     text-decoration: none;
   }
 }
@@ -82,7 +114,7 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  border-top: 1px solid #F78888;
   color: $gray-light;
   a {
     color: $gray;
