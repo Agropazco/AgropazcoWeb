@@ -3,10 +3,10 @@
     <%= link_to "Inicio", root_path, id: "logo" %>
     <nav class="barra">
       <ul class="nav navbar-nav">
-        <li class="link"><%= link_to "Publicaciones", root_path,id:"link" %></li>
-        <li class="link"><%= link_to "Municipios top", root_path,id:"link" %></li>
-        <li class="link"><%= link_to "Lo nuevo", root_path,id:"link" %></li>
-        <li class="link"><%= link_to "Ayuda", root_path,id:"link" %></li>
+        <li class="link"><%= link_to "Publicaciones", "#",id:"link" %></li>
+        <li class="link"><%= link_to "Municipios top", "#",id:"link" %></li>
+        <li class="link"><%= link_to "Lo nuevo", "#",id:"link" %></li>
+        <li class="link"><%= link_to "Ayuda", "#",id:"link" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
