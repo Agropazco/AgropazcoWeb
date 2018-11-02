@@ -6,11 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: "Juan Valdez",
+juanValdez = User.create!(name: "Juan Valdez",
              email: "jvaldez@mail.com",
              password:              "password",
              password_confirmation: "password",
-             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
+
+User.create!(name: "Comprador 1",
+             email: "comprador1@mail.com",
+             password:              "password",
+             password_confirmation: "password",
              activated: true,
              activated_at: Time.zone.now)
 
@@ -33,4 +39,6 @@ User.create!(name:  "Admin User",
                activated: true,
                activated_at: Time.zone.now )
 end
+
+juanValdez.posts.create( title: "Apples", content: "Nice juicy apples, best price" )
 

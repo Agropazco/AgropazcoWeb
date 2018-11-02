@@ -4,6 +4,8 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   attr_accessor :reset_token
 
+  has_many :posts
+
   enum user_type: [:vendor, :buyer, :admin] # TODO use
 
   # Email is always saved as a lowercase string

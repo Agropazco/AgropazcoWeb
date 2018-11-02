@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_233749) do
+ActiveRecord::Schema.define(version: 2018_11_02_010043) do
+
+  create_table "post_scores", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "scoring_user_id"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id", "scoring_user_id"], name: "index_post_scores_on_post_id_and_scoring_user_id", unique: true
+    t.index ["post_id"], name: "index_post_scores_on_post_id"
+    t.index ["scoring_user_id"], name: "index_post_scores_on_scoring_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
+    t.string "title"
     t.text "content"
     t.integer "user_id"
     t.datetime "created_at", null: false
