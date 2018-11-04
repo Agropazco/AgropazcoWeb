@@ -1,17 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*colores
-Rosa          #F78888
-Amarillo      #F3D250
+/*colors
+Rosadito      #F78888
+llelou        #F3D250
 balcusco      #ECECEC
-azul claro    #90CCF4
-azul chevere  #5DA2D5
-*/
+blue claro    #90CCF4
+blue chevere  #5DA2D5
 html, body{
   margin: 0px;
 }
-
 /* mixins, variables, etc. */
 
 @mixin box_sizing {
@@ -235,4 +233,3 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
-

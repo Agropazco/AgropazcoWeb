@@ -1,0 +1,18 @@
+<%= form_for @message, url: contact_url do |f| %>
+  <%= notice %>
+  <%= @message.errors.full_messages.join(', ') %>
+
+  <%= f.label :name, "Nombre" %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email, "Email" %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :subject, "Asunto" %>
+  <%= f.text_field :subject, class: 'form-control' %>
+
+  <%= f.label :body, "Mensaje" %>
+  <%= f.text_area :body, rows: 15 %>
+
+  <%= f.submit 'Enviar', class: "btn btn-primary" %>
+<% end %>
