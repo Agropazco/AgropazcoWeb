@@ -7,7 +7,12 @@ Rails.application.routes.draw do
 	root "static_pages#home"
 	get '/help',       to: 'static_pages#help'
 	get '/about',      to: 'static_pages#about'
-	get '/contact',    to: 'static_pages#contact'
+  get '/impact',     to: 'static_pages#impact'
+  get '/partners',   to: 'static_pages#partners'
+  get '/terms',      to: 'static_pages#terms'
+  
+  get   '/contact',    to: 'messages#new'
+  post  '/contact',    to: 'messages#create'
 
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
