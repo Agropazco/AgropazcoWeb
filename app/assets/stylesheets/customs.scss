@@ -79,7 +79,19 @@ p {
   border-bottom: solid #F78888;
 }
 
-.link, #link{
+#barra .link2{
+  padding: 30px 15px;
+  -webkit-transition: all ease-out .1s;
+  -moz-transition: all ease-out .1s;
+  -o-transition: all ease-out .1s;
+  transition: all ease-out .1s;
+}
+
+#barra .scrl{
+  padding: 15px 15px;
+}
+
+.link, #barra .link2{
   text-decoration:none;
   color: #5DA2D5;
   font-weight: bold;
