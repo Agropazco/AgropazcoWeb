@@ -1,16 +1,16 @@
 <header class="navbar navbar-fixed-top">
-  <div class="container">
+  <div class="container-barra">
     <%= link_to "Inicio", root_path, id: "logo" %>
-    <nav class="barra">
+    <nav id="barra">
       <ul class="nav navbar-nav">
-        <li class="link"><%= link_to "Publicaciones", "#",id:"link" %></li>
-        <li class="link"><%= link_to "Municipios top", "#",id:"link" %></li>
-        <li class="link"><%= link_to "Lo nuevo", "#",id:"link" %></li>
-        <li class="link"><%= link_to "Ayuda", "#",id:"link" %></li>
+        <li class="link"><%= link_to "Publicaciones", root_path,class:"link2" %></li>
+        <li class="link"><%= link_to "Municipios top", root_path,class:"link2" %></li>
+        <li class="link"><%= link_to "Lo nuevo", root_path,class:"link2" %></li>
+        <li class="link"><%= link_to "Ayuda", root_path,class:"link2" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li class="link"><%= link_to "Usuarios", users_path, id:"link" %></li>
+          <li class="link"><%= link_to "Usuarios", users_path, class:"link2" %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
@@ -20,17 +20,18 @@
               <li><%= link_to "Configuración", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li class="link">
-                <%= link_to "Cerrar sesión", logout_path, method: :delete, id:"link" %>
+                <%= link_to "Cerrar sesión", logout_path, method: :delete, class:"link2" %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li class="link"><%= link_to "Iniciar sesión", login_path, id:"link" %></li>
-          <li class="link"><%= link_to "Registro", signup_path,id:"link"  %></li>
+          <li class="link"><%= link_to "Iniciar sesión", login_path, class:"link2" %></li>
+          <li class="link"><%= link_to "Registro", signup_path,class:"link2"  %></li>
         <% end %>
 
       </ul>
     </nav>
   </div>
 </header>
+
 
