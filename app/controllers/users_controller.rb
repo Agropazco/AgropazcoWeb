@@ -21,11 +21,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    puts user_params.to_yaml
+    if (@user.role==1 or @user.role==2) and @user.save
       @user.send_activation_email
       flash[:info] = "Por favor revise su correo electrónico para activar su cuenta."
       redirect_to root_url
     else
+      puts "Usuario invalido"
       render 'new'
     end
   end
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(update_user_params)
       flash[:success] = "Perfíl actualizado"
       redirect_to @user
     else
@@ -53,7 +55,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
     end
 
     def logged_in_user
@@ -62,6 +64,10 @@ class UsersController < ApplicationController
         flash[:danger] = "Por favor inicie sesión"
         redirect_to login_url
       end
+    end
+
+    def update_user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation) # TODO No se ha verificado el nuevo email
     end
 
     def correct_user

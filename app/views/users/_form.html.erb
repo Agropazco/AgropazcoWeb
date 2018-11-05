@@ -7,6 +7,9 @@
   <%= f.label :email, "Email" %>
   <%= f.email_field :email, class: 'form-control' %>
 
+  <%= f.label :role, "Tipo de cuenta" %>
+  <%= f.select :role, [["Comprador",User.user_types[:buyer]], ["Vendedor",User.user_types[:vendor]]], {:selected=> "Comprador"}, class: 'form-control' %>  
+
   <%= f.label :password, "Contraseña" %>
   <%= f.password_field :password, class: 'form-control' %>
 

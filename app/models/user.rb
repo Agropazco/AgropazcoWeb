@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
 
-  enum user_type: [:vendor, :buyer, :admin] # TODO use
+  enum user_type: {admin:0, buyer:1, vendor:2}
 
   # Email is always saved as a lowercase string
   before_save   :downcase_email
@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    admin
+    role==0 # TODO
   end
 
   class << self

@@ -24,7 +24,7 @@ User.create!(name:  "Admin User",
              email: "admin@mail.com",
              password:              "password",
              password_confirmation: "password",
-             admin: true,
+             role: 0,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -41,4 +41,3 @@ User.create!(name:  "Admin User",
 end
 
 juanValdez.posts.create( title: "Apples", content: "Nice juicy apples, best price" )
-
