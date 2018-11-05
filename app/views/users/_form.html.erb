@@ -7,8 +7,10 @@
   <%= f.label :email, "Email" %>
   <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :role, "Tipo de cuenta" %>
-  <%= f.select :role, [["Comprador",User.user_types[:buyer]], ["Vendedor",User.user_types[:vendor]]], {:selected=> "Comprador"}, class: 'form-control' %>  
+  <% if locals[:parent] == :new %>
+    <%= f.label :role, "Tipo de cuenta" %>
+    <%= f.select :role, [["Comprador",:buyer], ["Vendedor",:vendor]], {:selected=> "Comprador"}, class: 'form-control' %>  
+  <% end %>
 
   <%= f.label :password, "Contraseña" %>
   <%= f.password_field :password, class: 'form-control' %>

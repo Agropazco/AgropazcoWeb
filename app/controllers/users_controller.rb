@@ -21,13 +21,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    puts user_params.to_yaml
-    if (@user.role==1 or @user.role==2) and @user.save
+    if (@user.buyer? or @user.vendor?) and @user.save
       @user.send_activation_email
       flash[:info] = "Por favor revise su correo electrónico para activar su cuenta."
       redirect_to root_url
     else
-      puts "Usuario invalido"
       render 'new'
     end
   end
@@ -58,6 +56,10 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
     end
 
+    def update_user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation) # TODO No se ha verificado el nuevo email
+    end
+
     def logged_in_user
       unless logged_in?
         store_location
@@ -66,18 +68,12 @@ class UsersController < ApplicationController
       end
     end
 
-    def update_user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation) # TODO No se ha verificado el nuevo email
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
     def admin_user
-      puts "Name: #{current_user.name}"
-      puts "is admin?: #{current_user.admin?}"
       redirect_to(root_url) unless current_user.admin?
     end
 end

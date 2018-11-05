@@ -14,7 +14,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         email: "invalid@",
         password: "123",
         password_confirmation: "321",
-        role: 1 } }
+        role: :buyer } }
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
@@ -30,7 +30,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          email: "user@example.com",
                                          password:              "password",
                                          password_confirmation: "password",
-                                         role: 2 } }
+                                         role: :vendor } }
     end
 
 
@@ -58,19 +58,15 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert logged_in?
   end
 
-  test "should not invalid role" do
-    for user_role in [-1,0,3,10,40] do
-
-      get signup_path
-      assert_no_difference "User.count" do
-        post signup_path, params: { user: { 
-          name: "pepito hacker",
-          email: "hackeradmin@mail.com",
-          password: "Contra1234",
-          password_confirmation: "Contra1234",
-          role: user_role } }
-      end
-      assert_template 'users/new'
+  test "should not create admin" do
+    get signup_path
+    assert_no_difference "User.count" do
+      post signup_path, params: { user: { 
+        name: "pepito hacker",
+        email: "hackeradmin@mail.com",
+        password: "Contra1234",
+        password_confirmation: "Contra1234",
+        role: :admin } }
     end
   end
 

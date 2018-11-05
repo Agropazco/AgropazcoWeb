@@ -3,6 +3,9 @@ require 'test_helper'
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:messi)
+    @buyer_user = @user
+    @vendor_user = users(:valdez)
+    @admin_user = users(:master)
   end
 
   test "unsuccessful edit" do
@@ -48,6 +51,17 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal name,  @user.name
     assert_equal email, @user.email
+  end
+
+  test "Shows user type correctly" do
+    cases = [ [@vendor_user, "Vendedor"],
+              [@admin_user, "Administrador"],
+              [@buyer_user, "Comprador"] ]
+    for u, u_type in cases do
+      log_in_as(u)
+      get edit_user_path(u)
+      response.include?(u_type)
+    end
   end
 
 end

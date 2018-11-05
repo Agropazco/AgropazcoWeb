@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
 
-  enum user_type: {admin:0, buyer:1, vendor:2}
+  enum role: {admin:0, buyer:1, vendor:2}
 
   # Email is always saved as a lowercase string
   before_save   :downcase_email
@@ -74,10 +74,6 @@ class User < ApplicationRecord
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
-  end
-
-  def admin?
-    role==0 # TODO
   end
 
   class << self
