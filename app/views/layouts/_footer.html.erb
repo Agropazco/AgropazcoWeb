@@ -1,11 +1,23 @@
 <footer class="footer">
-  <small>
-    Agropazco
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Sobre nosotros",   about_path %></li>
-      <li><%= link_to "Contacto", contact_path %></li>
-    </ul>
-  </nav>
+	<nav class="footer-nav">
+		<div id="items-footer">
+			<h6>Conozcanos</h6>
+			<ul id="list-footer" class="nav">
+				<li><%= link_to "Sobre nosotros",   about_path, id:"link" %></li>
+				<li><%= link_to "Nuestro impacto",   impact_path, id:"link" %></li>
+				<li><%= link_to "Nuestros Patrocinadores",   partners_path, id:"link" %></li>
+			</ul>
+		</div>
+		<div id="items-footer">
+			<h6>Información importante</h6>
+			<ul id="list-footer" class="nav">
+				<li><%= link_to "Contactenos", contact_path, id:"link" %></li>
+				<li><%= link_to "Terminos y condiciones", terms_path, id:"link" %></li>
+			</ul>
+		</div>
+	</nav>
+	<div id="site-footer__legal">
+		<span class="site-footer__logo">Agropazco</span>
+		<span>©2018 Agropazco</span>
+	</div>
 </footer>
