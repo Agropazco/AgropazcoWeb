@@ -24,16 +24,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     get edit_user_path(@user)
     assert_template 'users/edit'
     name  = "Foo Bar"
-    email = "foo@bar.com"
     patch user_path(@user), params: { user: { name:  name,
-                                              email: email,
                                               password:              "",
                                               password_confirmation: "" } }
     assert_not flash.empty?
     assert_redirected_to @user
     @user.reload
     assert_equal name,  @user.name
-    assert_equal email, @user.email
   end
 
   test "successful edit with friendly forwarding" do
@@ -41,16 +38,13 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     assert_redirected_to edit_user_url(@user)
     name  = "Foo Bar"
-    email = "foo@bar.com"
     patch user_path(@user), params: { user: { name:  name,
-                                              email: email,
                                               password:              "",
                                               password_confirmation: "" } }
     assert_not flash.empty?
     assert_redirected_to @user
     @user.reload
     assert_equal name,  @user.name
-    assert_equal email, @user.email
   end
 
   test "Shows user type correctly" do
@@ -62,6 +56,20 @@ class UsersEditTest < ActionDispatch::IntegrationTest
       get edit_user_path(u)
       response.include?(u_type)
     end
+  end
+
+  test "no change the email" do
+    log_in_as(@user)
+    get edit_user_path(@user)
+    assert_template 'users/edit'
+    email = @user.email
+    patch user_path(@user), params: { user: { name: @user.name,
+                                             email: "newfoo@mail.com",
+                                             password: "foo12345",
+                                             password_confirmation: "foo12345" } }
+    assert_redirected_to @user
+    @user.reload
+    assert_equal @user.email, email
   end
 
 end

@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     end
 
     def update_user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation) # TODO No se ha verificado el nuevo email
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
     def logged_in_user

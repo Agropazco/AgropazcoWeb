@@ -4,12 +4,14 @@
   <%= f.label :name, "Nombre" %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :email, "Email" %>
-  <%= f.email_field :email, class: 'form-control' %>
-
   <% if locals[:parent] == :new %>
+
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: 'form-control' %>
+
     <%= f.label :role, "Tipo de cuenta" %>
     <%= f.select :role, [["Comprador",:buyer], ["Vendedor",:vendor]], {:selected=> "Comprador"}, class: 'form-control' %>  
+  
   <% end %>
 
   <%= f.label :password, "Contraseña" %>
