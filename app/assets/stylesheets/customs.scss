@@ -8,9 +8,6 @@ balcusco      #ECECEC
 azul claro    #90CCF4
 azul chevere  #5DA2D5
 */
-html, body{
-  margin: 0px;
-}
 
 /* mixins, variables, etc. */
 
@@ -23,6 +20,7 @@ html, body{
 /* universal */
 
 html, body {
+  margin: 0px;
   padding-top: 60px;
   background-color: #90CCF4;
   font-family: 'Ubuntu', sans-serif;
@@ -122,14 +120,18 @@ p {
   }
 }
 /* container */
-.bodyOfBody{
+#bodyOfBody{
   padding:  0 0 50px 0;
-  min-height: 20em;
-  margin-bottom: 15%;
+  min-height: 100%;
+  min-height: 100vh;
+  padding-top: 65px;
+  margin-top: -60px;
   position: relative;
   z-index: 1;
-  
-  box-shadow: #000 0 20px 40px -10px;
+  -webkit-box-shadow: #000 0 7px 35px 0;
+  -moz-box-shadow: #000 0 7px 35px 0;
+  box-shadow: #000 0 7px 35px 0;
+
 }
 
 .contactenos textarea{
@@ -139,8 +141,15 @@ p {
 }
 
 /* footer */
+#som{
+  position: relative;
+  height: 1px;
+  z-index: 1;
+  background-color: red;
+  box-shadow: #000 0 20px 40px -10px;
+}
 
-footer {
+#footer {
   padding: 5% 10% 1% 10%;
   font-size: 85%;
   background-color: #2A2A2A;
@@ -153,34 +162,35 @@ footer {
   display: block;
   justify-content: center;
   text-align: center;
-  h6 {
-    font-weight: bold;
-    font-size: 150%;
-  }
-  #items-footer #link {
-    text-decoration: none;
-    list-style: none;
-    color: #F78888;
-    &:hover {
-      text-decoration:none;
-      color: #5DA2D5;
-      background-color: #2A2A2A
-    }
-  }
-  #items-footer {
-    display: inline-block;
-    margin: 5px auto;
-    list-style: none;
-    li {
-      padding: 0 30px 0 30px;
-      margin-left: 15px;
-    }
-  }
-  #site-footer__legal{
-    clear: both;
-    padding: 10px;
+}
+h6 {
+  font-weight: bold;
+  font-size: 150%;
+}
+#items-footer #link {
+  text-decoration: none;
+  list-style: none;
+  color: #F78888;
+  &:hover {
+    text-decoration:none;
+    color: #5DA2D5;
+    background-color: #2A2A2A
   }
 }
+#items-footer {
+  display: inline-block;
+  margin: 5px auto;
+  list-style: none;
+  li {
+    padding: 0 30px 0 30px;
+    margin-left: 15px;
+  }
+}
+#site-footer__legal{
+  clear: both;
+  padding: 10px;
+}
+
 
 /* miscellaneous */
 
