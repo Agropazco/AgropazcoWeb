@@ -12,4 +12,7 @@ class PostReport < ApplicationRecord
 	def post
 		Post.find(post_id)
 	end
+	def user
+		User.find(user_id)
+	end
 end
