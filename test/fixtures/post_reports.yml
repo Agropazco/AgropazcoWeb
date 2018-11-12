@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ronaldo_report_juanValdez:
+  post_id: 1
+  user_id: 4
+  topic: "imagenes falsas"
+  message: "las imagenes son bajadas del sitio imagenesfaciles.com"

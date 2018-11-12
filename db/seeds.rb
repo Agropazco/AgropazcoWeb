@@ -14,13 +14,14 @@ juanValdez = User.create!(name: "Juan Valdez",
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name: "Comprador 1",
+buyer1=User.create!(name: "Comprador 1",
              email: "comprador1@mail.com",
              password:              "password",
              password_confirmation: "password",
              activated: true,
              role: :buyer,
              activated_at: Time.zone.now)
+
 
 User.create!(name:  "Admin User",
              email: "admin@mail.com",
@@ -38,7 +39,6 @@ User.create!(name:  "Diego Said Niquefa Velasquez",
              activated: true,
              activated_at: Time.zone.now)
 
-
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@mail.com"
@@ -52,4 +52,5 @@ User.create!(name:  "Diego Said Niquefa Velasquez",
                activated_at: Time.zone.now )
 end
 
-juanValdez.posts.create( title: "Apples", content: "Nice juicy apples, best price" )
+juanValdezPost1=juanValdez.posts.create!( title: "Apples", content: "Nice juicy apples, best price" )
+buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba1",message: "Esto es una pequeña prueba de muchos errores")

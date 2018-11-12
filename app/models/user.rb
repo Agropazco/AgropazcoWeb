@@ -5,6 +5,7 @@ class User < ApplicationRecord
   attr_accessor :reset_token
 
   has_many :posts
+  has_many :post_reports
 
   enum role: {admin:0, buyer:1, vendor:2}
 
