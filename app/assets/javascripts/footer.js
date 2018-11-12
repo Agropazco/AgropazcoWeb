@@ -8,6 +8,7 @@ $(document).ready(function() {
 	});
 	
 	function siteFooter() {
+		
 		var siteContent = $('#bodyOfBody');
 		var siteContentHeight = siteContent.height();
 		var siteContentWidth = siteContent.width();
@@ -20,9 +21,7 @@ $(document).ready(function() {
 		console.log('Content Width = ' + siteContentWidth + 'px');
 		console.log('Footer Height = ' + siteFooterHeight + 'px');
 		console.log('Footer Width = ' + siteFooterWidth + 'px');
-
-		siteContent.css({
-			"margin-bottom" : siteFooterHeight + 50
-		});
+		siteContent.css({"margin-bottom" : siteFooterHeight + 50});
+		
 	};
 });
