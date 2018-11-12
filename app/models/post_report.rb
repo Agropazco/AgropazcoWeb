@@ -1,9 +1,9 @@
 class PostReportValidator < ActiveModel::Validator
-  def validate(record)
-	if record.errors.blank? and record.post.user_id==record.user_id
-	  	record.errors[:base] << "Un usuario no puede reportar su propio post"
+	def validate(record)
+		if record.errors.blank? and record.post.user_id==record.user_id
+			record.errors[:base] << "Un usuario no puede reportar su propio post"
+		end
 	end
-  end
 end
 
 class PostReport < ApplicationRecord
