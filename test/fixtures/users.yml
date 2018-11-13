@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 master:
-  id: 1
   name: Master Chris
   email: mchris@mail.com
   password_digest: <%= User.digest('password') %>
@@ -10,7 +9,6 @@ master:
   activated_at: <%= Time.zone.now %>
 
 messi:
-  id: 2
   name: Lionel Messi
   email: lmessi@mail.com
   password_digest: <%= User.digest('password') %>
@@ -18,7 +16,6 @@ messi:
   activated_at: <%= Time.zone.now %>
 
 ronaldo:
-  id: 3
   name: Cristiano Ronaldo
   email: cronaldo@mail.com
   password_digest: <%= User.digest('password') %>

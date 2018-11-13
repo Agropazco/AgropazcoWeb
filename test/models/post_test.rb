@@ -3,7 +3,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:messi)
-    @post = posts(:apples)
+    @post = @user.posts.build(title: "title" , content:"Lorem ipsum")
   end
 
   test "should be valid" do
@@ -38,5 +38,9 @@ class PostTest < ActiveSupport::TestCase
     @post.content += "a"
     assert_not @post.valid?
   end
+
+  test "order should be most recent first" do 
+    assert_equal posts( :most_recent) , Post.first
+  end 
 
 end

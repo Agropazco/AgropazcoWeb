@@ -4,7 +4,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   attr_accessor :reset_token
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   enum user_type: [:vendor, :buyer, :admin] # TODO use
 
@@ -96,6 +96,10 @@ class User < ApplicationRecord
 
   end
 
+  def feed
+    Post.where("user_id= ? ",id)
+  end
+  
   private
 
   def downcase_email
