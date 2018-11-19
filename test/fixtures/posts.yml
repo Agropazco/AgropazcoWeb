@@ -1,8 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 apples:
-  id: 1
   title: Apples for sale!
   content: Juicy red apples! Pay 3 get 4 :D
-  user_id: 2
+  created_at: <%= 10.minutes.ago %>
+  user: master
 
+oranges:
+  title: Oranges for sale!
+  content: Juicy red apples! Pay 3 get 4 :D
+  created_at: <%= 3.years.ago %>
+  user: messi
+
+most_recent:
+  title: Pinaples for sale!
+  content: Juicy red apples! Pay 3 get 4 :D
+  created_at: <%= Time.zone.now %>
+  user: ronaldo
+
+<% 30.times do |n| %>
+post_<%= n %>:
+  title: <%= Faker::Lorem.sentence(1) %>
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 42.days.ago %>
+  user: master
+<%end%>
