@@ -6,7 +6,7 @@ class PostReportsController < ApplicationController
 	  @post_reports = PostReport.all.paginate(page: params[:page])
 	end
 
-	before_action :admin_user,     only: [:show, :index]
+	before_action :admin_user,     only: [:show, :index, :destroy]
 
 	def show
 		@post_report = PostReport.find(params[:id])
@@ -17,7 +17,16 @@ class PostReportsController < ApplicationController
 	end
 
 	def create
-		@post_report = PostReport.new(PostReport_params)
+		params = post_report_params
+		user = current_user
+		if user.nil?
+			redirect_to login_path
+			return
+		end
+		params[:user_id] = user.id
+		params[:post_id] = 1 # TODO TODO TODO
+
+		@post_report = PostReport.new(params)
 		if @post_report.save
 			flash[:info] = "Gracias. Todos sus reportes serán tenidos en cuenta."
 			redirect_to root_url
@@ -31,7 +40,6 @@ class PostReportsController < ApplicationController
 		flash[:success] = "El reporte de post fue borrado satisfactoriamente"
 		redirect_to PostReports_url
 	end
-
 
 
 	private
