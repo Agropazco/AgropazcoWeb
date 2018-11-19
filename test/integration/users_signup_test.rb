@@ -13,7 +13,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         name: " \t ",
         email: "invalid@",
         password: "123",
-        password_confirmation: "321" } }
+        password_confirmation: "321",
+        role: :buyer } }
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
@@ -28,8 +29,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post users_path, params: { user: { name:  "Example User",
                                          email: "user@example.com",
                                          password:              "password",
-                                         password_confirmation: "password" } }
+                                         password_confirmation: "password",
+                                         role: :vendor } }
     end
+
 
     assert_equal 1, ActionMailer::Base.deliveries.size
     user = assigns(:user)
@@ -53,6 +56,18 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert logged_in?
+  end
+
+  test "should not create admin" do
+    get signup_path
+    assert_no_difference "User.count" do
+      post signup_path, params: { user: { 
+        name: "pepito hacker",
+        email: "hackeradmin@mail.com",
+        password: "Contra1234",
+        password_confirmation: "Contra1234",
+        role: :admin } }
+    end
   end
 
 end

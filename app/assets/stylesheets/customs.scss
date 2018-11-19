@@ -1,16 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*colors
-Rosadito      #F78888
-llelou        #F3D250
+/*colores
+Rosa          #F78888
+Amarillo      #F3D250
 balcusco      #ECECEC
-blue claro    #90CCF4
-blue chevere  #5DA2D5
+azul claro    #90CCF4
+azul chevere  #5DA2D5
+*/
 
-html, body{
-  margin: 0px;
-}
 /* mixins, variables, etc. */
 
 @mixin box_sizing {
@@ -22,6 +20,7 @@ html, body{
 /* universal */
 
 html, body {
+  margin: 0px;
   padding-top: 60px;
   background-color: #90CCF4;
   font-family: 'Ubuntu', sans-serif;
@@ -78,8 +77,19 @@ p {
   border-bottom: solid #F78888;
 }
 
+#barra .link2{
+  padding: 30px 15px;
+  -webkit-transition: all ease-out .1s;
+  -moz-transition: all ease-out .1s;
+  -o-transition: all ease-out .1s;
+  transition: all ease-out .1s;
+}
 
-.link, #link {
+#barra .scrl{
+  padding: 15px 15px;
+}
+
+.link, #barra .link2{
   text-decoration:none;
   color: #5DA2D5;
   font-weight: bold;
@@ -89,6 +99,10 @@ p {
   }
 }
 
+.container-barra{
+  padding-left: 15%;
+  padding-right: 15%;
+}
 
 #logo {
   float: left;
@@ -99,38 +113,83 @@ p {
   letter-spacing: -1px;
   padding-top: 10px;
   font-weight: bold;
-
   &:hover {
     color: #ECECEC;
     text-decoration: none;
   }
 }
+/* container */
+#bodyOfBody{
+  padding:  0 0 50px 0;
+  min-height: 100%;
+  min-height: 100vh;
+  padding-top: 65px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: #000 0 7px 35px 0;
+  -moz-box-shadow: #000 0 7px 35px 0;
+  box-shadow: #000 0 7px 35px 0;
+
+}
+
+.contactenos textarea{
+  resize: vertical;
+  max-height: 100px;
+  min-height: 100px;
+}
 
 /* footer */
+#som{
+  position: relative;
+  height: 1px;
+  z-index: 1;
+  background-color: red;
+  box-shadow: #000 0 20px 40px -10px;
+}
 
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #F78888;
-  color: $gray-light;
-  a {
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
+#footer {
+  padding: 5% 10% 1% 10%;
+  font-size: 85%;
+  background-color: #2A2A2A;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #5DA2D5;
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+h6 {
+  font-weight: bold;
+  font-size: 150%;
+}
+#items-footer #link {
+  text-decoration: none;
+  list-style: none;
+  color: #F78888;
+  &:hover {
+    text-decoration:none;
+    color: #5DA2D5;
+    background-color: #2A2A2A
   }
 }
+#items-footer {
+  display: inline-block;
+  margin: 5px auto;
+  list-style: none;
+  li {
+    padding: 0 30px 0 30px;
+    margin-left: 15px;
+  }
+}
+#site-footer__legal{
+  clear: both;
+  padding: 10px;
+}
+
 
 /* miscellaneous */
 
@@ -278,3 +337,4 @@ span.picture{
     border: 0; 
   }
 }
+

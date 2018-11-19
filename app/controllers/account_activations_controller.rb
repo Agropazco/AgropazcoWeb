@@ -1,6 +1,6 @@
 class AccountActivationsController < ApplicationController
 
-  include SessionsHelper # shoudn't be needed :C TODOc check
+  include SessionsHelper
 
   def edit
     user = User.find_by(email: params[:email])

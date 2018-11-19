@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if (@user.buyer? or @user.vendor?) and @user.save
       @user.send_activation_email
       flash[:info] = "Por favor revise su correo electrónico para activar su cuenta."
       redirect_to root_url
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(update_user_params)
       flash[:success] = "Perfíl actualizado"
       redirect_to @user
     else
@@ -54,7 +54,11 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
+    end
+
+    def update_user_params
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
     def correct_user
@@ -63,8 +67,6 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      puts "Name: #{current_user.name}"
-      puts "is admin?: #{current_user.admin?}"
       redirect_to(root_url) unless current_user.admin?
     end
 end

@@ -4,7 +4,7 @@ master:
   name: Master Chris
   email: mchris@mail.com
   password_digest: <%= User.digest('password') %>
-  admin: true
+  role: 0
   activated: true
   activated_at: <%= Time.zone.now %>
 
@@ -12,13 +12,25 @@ messi:
   name: Lionel Messi
   email: lmessi@mail.com
   password_digest: <%= User.digest('password') %>
+  role: 1
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+valdez:
+  id: 3
+  name: Juan Valdez
+  email: jvaldez@mail.com
+  password_digest: <%= User.digest('password') %>
+  role: 2
   activated: true
   activated_at: <%= Time.zone.now %>
 
 ronaldo:
+  id: 4
   name: Cristiano Ronaldo
   email: cronaldo@mail.com
   password_digest: <%= User.digest('password') %>
+  role: 1
   activated: true
   activated_at: <%= Time.zone.now %>
 
@@ -26,6 +38,7 @@ unactivated_user:
   name: Unactivated User
   email: fake.email@mail.com
   password_digest: <%= User.digest('password') %>
+  role: 1
   activated: false 
 
 <% 70.times do |n| %>
@@ -33,6 +46,7 @@ user_<%= n %>:
   name:  <%= "User #{n}" %>
   email: <%= "user-#{n}@mail.com" %>
   password_digest: <%= User.digest('password') %>
+  role: 1
   activated: true
   activated_at: <%= Time.zone.now %>
 <% end %>

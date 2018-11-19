@@ -10,6 +10,7 @@ juanValdez = User.create!(name: "Juan Valdez",
              email: "jvaldez@mail.com",
              password:              "password",
              password_confirmation: "password",
+             role: :vendor,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -18,15 +19,25 @@ User.create!(name: "Comprador 1",
              password:              "password",
              password_confirmation: "password",
              activated: true,
+             role: :buyer,
              activated_at: Time.zone.now)
 
 User.create!(name:  "Admin User",
              email: "admin@mail.com",
              password:              "password",
              password_confirmation: "password",
-             admin: true,
+             role: :admin,
              activated: true,
              activated_at: Time.zone.now)
+
+User.create!(name:  "Diego Said Niquefa Velasquez",
+             email: "niquefa.diego@gmail.com",
+             password:              "pniquefa",
+             password_confirmation: "pniquefa",
+             role: :buyer,
+             activated: true,
+             activated_at: Time.zone.now)
+
 
 99.times do |n|
   name  = Faker::Name.name
@@ -36,6 +47,7 @@ User.create!(name:  "Admin User",
                email: email,
                password:              password,
                password_confirmation: password,
+               role: :buyer,
                activated: true,
                activated_at: Time.zone.now )
 end
@@ -48,3 +60,4 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   users.each{ |user| user.posts.create!(title: title , content: content)}
 end
+
