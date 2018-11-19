@@ -3,7 +3,7 @@
   <%= link_to user.name, user %>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "eliminar", user, method: :delete,
-      data: { confirm: ""¿Está seguro?"" } %>
+      data: { confirm: "¿Está seguro?" } %>
   <% end %>
 </li>
 
