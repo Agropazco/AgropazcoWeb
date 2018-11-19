@@ -1,11 +1,12 @@
 class PostReportsController < ApplicationController
 
 	include SessionsHelper
-#	def index
-#	  @post_reports = PostReport.all.paginate(page: params[:page])
-#	end
 
-	before_action :admin_user,     only: :show
+	def index
+	  @post_reports = PostReport.all.paginate(page: params[:page])
+	end
+
+	before_action :admin_user,     only: [:show, :index]
 
 	def show
 		@post_report = PostReport.find(params[:id])

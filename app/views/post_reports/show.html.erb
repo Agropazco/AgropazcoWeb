@@ -1,5 +1,5 @@
-<% provide(:title, "Reporte de usuario ##{@post_report.post_id}") %>
-<h1>Reporte de usuario #<%= @post_report.post_id %></h1>
+<% provide(:title, "Reporte de usuario ##{@post_report.id}") %>
+<h1>Reporte de usuario #<%= @post_report.id %></h1>
 <p>Usuario que reporta: <%= link_to @post_report.user.name, @post_report.user %></p>
 <p>Asunto: <%= link_to @post_report.topic, "#"%><!-- TODO--></p>
 <p>Mensage: <%= @post_report.message%></p>

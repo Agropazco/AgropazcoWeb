@@ -1,0 +1,5 @@
+<li>
+	<h3><%= link_to "Reporte de usuario ##{post_report.id}", post_report %></h3>
+	<p>Asunto: <%= post_report.topic%></p>
+	<p>Usuario que reporta: <%= link_to post_report.user.name, post_report.user %></p>
+</li>

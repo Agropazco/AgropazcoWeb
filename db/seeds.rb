@@ -31,7 +31,7 @@ User.create!(name:  "Admin User",
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name:  "Diego Said Niquefa Velasquez",
+diego=User.create!(name:  "Diego Said Niquefa Velasquez",
              email: "niquefa.diego@gmail.com",
              password:              "pniquefa",
              password_confirmation: "pniquefa",
@@ -53,4 +53,6 @@ User.create!(name:  "Diego Said Niquefa Velasquez",
 end
 
 juanValdezPost1=juanValdez.posts.create!( title: "Apples", content: "Nice juicy apples, best price" )
-buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba1",message: "Esto es una pequeña prueba de muchos errores")
+buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba1",message: "Tiene imagenes bajadas de internet")
+buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba2",message: "Aunque ahora tiene imagenes diferentes estas siguen siendo falsas")
+diego.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba3",message: "Tiene una imagen que no tiene que ver con el producto")
