@@ -1,0 +1,14 @@
+<% provide(:title, 'Todos los Reportes') %>
+<h1>Reportes</h1>
+
+<% if @post_reports.empty? %>
+  <p> No hay reportes de post. </p>
+<% else %>
+  <%= will_paginate %>
+
+  <ul class="post_reports">
+    <%= render @post_reports %>
+  </ul>
+
+  <%= will_paginate %>
+<% end %>

@@ -14,13 +14,14 @@ juanValdez = User.create!(name: "Juan Valdez",
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name: "Comprador 1",
+buyer1=User.create!(name: "Comprador 1",
              email: "comprador1@mail.com",
              password:              "password",
              password_confirmation: "password",
              activated: true,
              role: :buyer,
              activated_at: Time.zone.now)
+
 
 User.create!(name:  "Admin User",
              email: "admin@mail.com",
@@ -30,14 +31,13 @@ User.create!(name:  "Admin User",
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name:  "Diego Said Niquefa Velasquez",
+diego=User.create!(name:  "Diego Said Niquefa Velasquez",
              email: "niquefa.diego@gmail.com",
              password:              "pniquefa",
              password_confirmation: "pniquefa",
              role: :buyer,
              activated: true,
              activated_at: Time.zone.now)
-
 
 99.times do |n|
   name  = Faker::Name.name
@@ -52,7 +52,7 @@ User.create!(name:  "Diego Said Niquefa Velasquez",
                activated_at: Time.zone.now )
 end
 
-juanValdez.posts.create( title: "Apples", content: "Nice juicy apples, best price" )
+juanValdezPost1=juanValdez.posts.create!( title: "Apples", content: "Nice juicy apples, best price" )
 
 users = User.order(:created_at).take(6)
 50.times do 
@@ -61,3 +61,6 @@ users = User.order(:created_at).take(6)
   users.each{ |user| user.posts.create!(title: title , content: content)}
 end
 
+buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba1",message: "Tiene imagenes bajadas de internet")
+buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba2",message: "Aunque ahora tiene imagenes diferentes estas siguen siendo falsas")
+diego.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba3",message: "Tiene una imagen que no tiene que ver con el producto")

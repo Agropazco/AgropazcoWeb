@@ -33,3 +33,6 @@
 
 # Tmp cache
 tmp/cache/*
+
+# Visual Studio Code
+.vscode/*

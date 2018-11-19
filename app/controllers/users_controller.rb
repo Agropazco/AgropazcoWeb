@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  include SessionsHelper # Shouldn't be needed :'v
+  include SessionsHelper
 
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
@@ -46,9 +46,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    puts "Deleting user"
     User.find(params[:id]).destroy
-    flash[:success] = "user deleted"
+    flash[:success] = "Usiario borrado satisfactoriamente"
     redirect_to users_url
   end
 
@@ -70,4 +69,3 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 end
-
