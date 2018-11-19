@@ -38,7 +38,7 @@ class PostReportsController < ApplicationController
 	def destroy
 		PostReport.find(params[:id]).destroy
 		flash[:success] = "El reporte de post fue borrado satisfactoriamente"
-		redirect_to PostReports_url
+		redirect_to post_reports_url
 	end
 
 

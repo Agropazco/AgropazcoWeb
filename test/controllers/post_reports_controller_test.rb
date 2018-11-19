@@ -46,5 +46,18 @@ class PostReportsControllerTest < ActionDispatch::IntegrationTest
 		end
 	end
 
+	test "non-admin can not delete a report" do
+		log_in_as @user
+		assert_no_difference 'PostReport.count' do
+			delete post_report_path(@post_report)
+		end
+	end
+
+	test "admin can delete a post report" do 
+		log_in_as @admin_user 
+		assert_difference 'PostReport.count', -1 do
+			delete post_report_path(@post_report)
+		end
+	end
 	
 end
