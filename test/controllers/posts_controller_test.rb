@@ -9,7 +9,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Post.count' do 
       post posts_path, params: { post: { title: "title" , content: "Lorem ipsum"}}
     end
-  assert_redirected_to login_url 
+    assert_redirected_to login_url 
   end
 
   test "should redirect destroy when not logged in" do
@@ -18,5 +18,14 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end 
+
+  test "should redirect destory for wrong posts" do 
+    log_in_as(user(:master))
+    post = posts(:papas)
+    assert_no_difference 'Post.count' do 
+      delete post_path(post)
+    end
+    assert_redirected_to root_url
+  end
 
 end
