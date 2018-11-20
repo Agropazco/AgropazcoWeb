@@ -81,6 +81,7 @@ gem 'rails-controller-testing'
 
 gem 'jquery-rails'
 
+gem 'rack', '>= 2.0.6'
 
 gem 'faker'
 
