@@ -106,21 +106,21 @@ p {
   padding-right: 15%;
 }
 
-#logo {
+#logo .logo_image{
+  height: 80px;
+  width: 80px;
   float: left;
-  margin-right: 9px;
-  font-size: 1.7em;
-  color: #5DA2D5;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 10px;
-  font-weight: bold;
 
-  &:hover {
-    color: #ECECEC;
-    text-decoration: none;
-  }
+  padding: 3px 0px;
 }
+
+#logo .scrl_logo{
+  height: 50px;
+  width: 50px;
+  float: left;
+  padding: 1px 0px;
+}
+
 /* container */
 .bodyOfBody{
   padding:  0 0 50px 0;
