@@ -1,0 +1,2 @@
+module PostReportsHelper
+end
