@@ -75,5 +75,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_empty cookies['remember_token']
   end
 
+  test "logged in user should not be able to access login" do
+    get login_path
+    assert_template '/'
+  end
+
+  test "logged in user should not be able to access signup" do 
+    get signup_path
+    assert_template '/'
+  end
 end
 

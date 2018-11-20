@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   include SessionsHelper # shouldn't be needed... :'v
 
   def new
+    redirect_to root_url unless current_user.nil?
   end
 
   def create
