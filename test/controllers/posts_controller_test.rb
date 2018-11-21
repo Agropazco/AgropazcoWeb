@@ -20,7 +20,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end 
 
   test "should redirect destory for wrong posts" do 
-    log_in_as(user(:master))
+    log_in_as(users(:master))
     post = posts(:papas)
     assert_no_difference 'Post.count' do 
       delete post_path(post)

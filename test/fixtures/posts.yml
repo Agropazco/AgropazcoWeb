@@ -24,7 +24,7 @@ post_<%= n %>:
   title: <%= Faker::Lorem.sentence(1) %>
   content: <%= Faker::Lorem.sentence(5) %>
   created_at: <%= 42.days.ago %>
-  user: master
+  user_id: 3
 <%end%>
 
 papas:
