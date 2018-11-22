@@ -17,10 +17,10 @@ class UsersController < ApplicationController
   end
 
   def new
-    if current_user.nil?
-      @user = User.new
-    else
+    if logged_in?
       redirect_to root_url
+    else
+      @user = User.new
     end
   end
 

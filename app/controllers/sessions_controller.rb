@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  include SessionsHelper # shouldn't be needed... :'v
+  include SessionsHelper
 
   def new
     redirect_to root_url unless current_user.nil?
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         redirect_to root_url
       end
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Usuario o contraseña inválido'
       render 'new'
     end
   end
