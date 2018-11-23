@@ -22,7 +22,6 @@ buyer1=User.create!(name: "Comprador 1",
              role: :buyer,
              activated_at: Time.zone.now)
 
-
 admin1=User.create!(name:  "Admin User",
              email: "admin@mail.com",
              password:              "password",

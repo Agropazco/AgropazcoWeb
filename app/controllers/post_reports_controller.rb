@@ -14,23 +14,27 @@ class PostReportsController < ApplicationController
 
 	def new
 		@post_report = PostReport.new
+		@post_report.post_id = params[:post_id]
 	end
 
 	def create
-		params = post_report_params
 		user = current_user
 		if user.nil?
 			redirect_to login_path
+			
 			return
 		end
-		params[:user_id] = user.id
-		params[:post_id] = 1 # TODO TODO TODO
 
+		params = post_report_params
+		params[:user_id] = current_user.id
+		puts params
 		@post_report = PostReport.new(params)
 		if @post_report.save
 			flash[:info] = "Gracias. Todos sus reportes serán tenidos en cuenta."
 			redirect_to root_url
 		else
+			puts @post_report.errors.first
+			puts "fail :C"
 			render 'new'
 		end
 	end
@@ -45,7 +49,7 @@ class PostReportsController < ApplicationController
 	private
 
 		def post_report_params
-			params.require(:post_report).permit(:user_id, :post_id, :topic, :message)
+			params.require(:post_report).permit(:post_id, :topic, :message)
 		end
 
 		def admin_user
