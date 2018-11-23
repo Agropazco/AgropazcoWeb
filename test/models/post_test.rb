@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @user = users(:buyer1)
+    @user = users(:vendor1)
     @post = @user.posts.build(title: "title" , content:"Lorem ipsum")
   end
 
@@ -42,5 +42,11 @@ class PostTest < ActiveSupport::TestCase
   test "order should be most recent first" do 
     assert_equal posts( :most_recent) , Post.first
   end 
+
+  test "user role should be vendor" do
+    assert @post.valid?
+    @post.user = users(:admin1)
+    assert_not @post.valid?
+  end
 
 end

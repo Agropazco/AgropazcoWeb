@@ -40,6 +40,14 @@ vendor2:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+vendor3:
+  name: Granjero Pedro
+  email: gpedro@mail.com
+  password_digest: <%= User.digest('password') %>
+  role: 2
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 unactivated_user:
   name: Unactivated User
   email: fake.email@mail.com

@@ -55,7 +55,7 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
     num_posts = @user.posts.count
     assert_match "#{num_posts} posts", response.body
     #User with zero posts 
-    other_user = users(:buyer2)
+    other_user = users(:vendor3)
     log_in_as(other_user)
     get root_path 
     assert_match "0 posts", response.body
