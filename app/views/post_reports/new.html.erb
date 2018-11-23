@@ -3,13 +3,15 @@
 
 <%= form_for(@post_report) do |f| %>
 
-  <%= render 'shared/error_messages', locals: { object: @post_report } %>
+  <%= render 'shared/error_messages', object: @post_report %>
 
   <%= f.label :topic, "Motivo de reporte" %>
 	<%= f.text_field :topic, class: 'form-control' %>
 	
 	<%= f.label :message, "Justificación" %>
 	<%= f.text_area :message, class: 'form-control' %>
+
+	<%= f.hidden_field :post_id, value: "#{@post_report.post_id}" %>
 
   <%= f.submit "Enviar", class: "btn btn-primary" %>
 <% end %>

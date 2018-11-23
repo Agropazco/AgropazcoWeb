@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PostScoreTest < ActiveSupport::TestCase
   def setup
-    @post_score = post_scores(:ronaldo_to_apples)
+    @post_score = post_scores(:buyer2_score_of_apples)
   end
 
   test "should be valid" do

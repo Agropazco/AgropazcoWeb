@@ -11,8 +11,15 @@
     <span class= "timestamp">
         Publicado hace <%= time_ago_in_words (post.created_at) %>. 
         <% if current_user?(post.user) %>
-        <%= link_to "delete" , post, method: :delete,
-                                            data: {confirm: "¿Esta seguro?"}%>
+            <%= link_to "Eliminar" ,
+                    post,
+                    method: :delete,
+                    data: {confirm: "¿Esta seguro?"}%>
+        <%else%>
+            <%= link_to "Reportar" ,
+                    new_post_report_url(post_id: post.id),
+                    method: :get %>
         <%end%>
+
     </span>
 <li>

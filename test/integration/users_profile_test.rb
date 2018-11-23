@@ -4,7 +4,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
 
   def setup 
-    @user = users(:valdez)
+    @user = users(:vendor1)
     @post = posts(:apples)
   end
 

@@ -7,8 +7,8 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 100 }
   validates :content, presence: true, length: { maximum: 10000 }
   validate :picture_size
-  has_many :post_scores
-  has_many :post_reports
+  has_many :post_scores, dependent: :destroy
+  has_many :post_reports, dependent: :destroy
   
   private 
     def picture_size

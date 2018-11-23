@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @user = users(:messi)
+    @user = users(:buyer1)
     @post = @user.posts.build(title: "title" , content:"Lorem ipsum")
   end
 

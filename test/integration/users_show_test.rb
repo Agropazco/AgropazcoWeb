@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersShowTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:messi)
+    @user = users(:buyer1)
     @unactivated_user = users(:unactivated_user)
   end
 

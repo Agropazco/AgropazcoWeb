@@ -1,46 +1,46 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 apples:
-  id: 1
   title: Apples for sale!
   content: Juicy red apples! Pay 3 get 4 :D
   created_at: <%= 10.minutes.ago %>
-  user_id: 3
+  user: vendor1
 
 oranges:
   title: Oranges for sale!
   content: Juicy red apples! Pay 3 get 4 :D
   created_at: <%= 3.years.ago %>
-  user_id: 3
+  user: vendor1
 
 most_recent:
   title: Pinaples for sale!
   content: Juicy red apples! Pay 3 get 4 :D
   created_at: <%= Time.zone.now %>
-  user_id: 3
+  user: vendor1
+
 
 <% 30.times do |n| %>
 post_<%= n %>:
   title: <%= Faker::Lorem.sentence(1) %>
   content: <%= Faker::Lorem.sentence(5) %>
   created_at: <%= 42.days.ago %>
-  user_id: 3
+  user: vendor1
 <%end%>
 
 papas:
   title: "Papa criolla"
   content: "Papa criolla de temporada " 
   created_at: <%= 2.years.ago %>
-  user: messi
+  user: vendor2
 
 zanahoria: 
   title: "Zanahorias buenas"
   content: "Buenas zanahorias" 
   created_at: <%= 3.days.ago %>
-  user: master
+  user: vendor2
 
 tomates: 
   title: "Tomates rojos"
   content: "Rojos tomates"
   created_at: <%= 10.minutes.ago %> 
-  user: ronaldo  
+  user: vendor2

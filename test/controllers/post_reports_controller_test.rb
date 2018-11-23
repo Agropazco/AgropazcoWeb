@@ -3,9 +3,10 @@ require 'test_helper'
 class PostReportsControllerTest < ActionDispatch::IntegrationTest
 
 	def setup()
-		@user=users(:messi)
-		@admin_user=users(:master)
-		@post_report=post_reports(:ronaldo_report_juanValdez)
+		@user=users(:buyer1)
+		@admin_user=users(:admin1)
+		@post=posts(:apples)
+		@post_report=post_reports(:buyer2_report_of_post1_of_vendor1)
 	end
 
 	test "show should work for admin" do
@@ -39,7 +40,7 @@ class PostReportsControllerTest < ActionDispatch::IntegrationTest
 		log_in_as @user
 		assert_difference 'PostReport.count', 1 do
 			post post_reports_path params: { post_report: {
-				post_id: 1,
+				post_id: @post.id,
 				topic:   "Post racista",
 				message: "Este post discimina contra los pastusos" } }
 			assert_redirected_to root_url
