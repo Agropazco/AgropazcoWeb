@@ -38,9 +38,22 @@ diego=User.create!(name:  "Diego Said Niquefa Velasquez",
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
+6.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@mail.com"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               role: :vendor,
+               activated: true,
+               activated_at: Time.zone.now )
+end
+
+99.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+7}@mail.com"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -53,7 +66,7 @@ end
 
 vendor1Post1=vendor1.posts.create!( title: "Apples", content: "Nice juicy apples, best price" )
 
-users = User.order(:created_at).take(6)
+users = User.where(role:2).take(6)
 50.times do 
   title = Faker::Lorem.sentence(1)
   content = Faker::Lorem.sentence(5)
