@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   validate :is_vendor
   has_many :post_scores, dependent: :destroy
   has_many :post_reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   private 
     def picture_size
