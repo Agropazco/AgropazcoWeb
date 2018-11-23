@@ -1,2 +1,30 @@
 <% provide(:title, @post.title) %>
 <%= render @post %>
+
+<% @comments.each do |c| %>
+  <% user = c.user %>
+  <div class="item">
+    <div class="content">
+      <div class=messages"header"><strong><%= user.name %></strong> <%= c.time_as_string %></div>
+      <div class="list">
+        <div class="item">
+          <i class="right triangle icon"></i>
+          <%= c.body %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= form_for @comment, html: {class: "ui reply form"} do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.text_field :post_id, value: @post.id, type: "hidden"  %>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div>
+    <%= f.submit "Comentar", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
