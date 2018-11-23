@@ -1,25 +1,24 @@
-
-<li id="post-<%=post.id %>">
-    
+<h3><span class="title"><%= link_to post.title, post, id:"titleP"%></span></h3>
+<ol id="post-<%=post.id %>" class="posts">
     <%= link_to gravatar_for(post.user, size: 50), post.user %>
-    <span class="user"><%= link_to post.user.name, post.user%></span>
-    <span class="title"><%= link_to post.title, post%></span>
+    <span class="user">Creado por: <%= link_to post.user.name, post.user%></span><br><br>
     <span class= "content">
         <%= post.content %>
         <%= image_tag post.picture.url if post.picture?%>
     </span>
     <span class= "timestamp">
-        Publicado hace <%= time_ago_in_words (post.created_at) %>. 
+        Publicado hace <%= time_ago_in_words (post.created_at) %>.<br><br>
         <% if current_user?(post.user) %>
             <%= link_to "Eliminar" ,
                     post,
+                    id:"delite-report",
                     method: :delete,
                     data: {confirm: "¿Esta seguro?"}%>
         <%else%>
             <%= link_to "Reportar" ,
                     new_post_report_url(post_id: post.id),
+                    id:"delite-report",
                     method: :get %>
         <%end%>
-
     </span>
-<li>
+</ol>

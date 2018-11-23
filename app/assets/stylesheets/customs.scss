@@ -306,20 +306,38 @@ input {
 }
 
 /*posts*/
+#titleP{
+  text-decoration: none;
+  font-weight: bold;
+}
 .posts {
   list-style : none;
-  padding: 0; 
+  padding: 15px;
+  border-bottom: 1px solid;
+  border-color: #F78888;  
   li{
     padding: 10px 0;
     border-top: 1pz slid #e8e8e8;
   }
   .user{
     margin-top: 5em;
-    padding-top: 0 ; 
+    padding-top: 0 ;
+    color: #337ab7;
+    font-size: 150%;
+    a{
+      text-decoration: none;
+      color: #337ab7;
+    }
   }
   .content {
     display: block;
     margin-left: 60px;
+    margin: 0 0 25px;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #ECECEC;
+    border: 2px solid #afcde3;
+    border-radius: 10px;
     img{
       display: block;
       padding: 5px 0;
@@ -328,12 +346,21 @@ input {
   .timestamp{
     color: $gray-light;
     display: block;
-    margin-left: 60px; 
+    margin-left: 60px;
   }
   .gravatar{
     float: left; 
     margin-right: 10px;
     margin-top: 5px; 
+  }
+  #delite-report{
+    text-decoration: none;
+    padding: 3px 15px;
+    background-color: #F4C4C4;
+    border-radius: 10px;
+    font-size: 110%;
+    color: #F78888;
+    font-weight: bold;
   }
 }
 aside {
@@ -348,4 +375,3 @@ span.picture{
     border: 0; 
   }
 }
-
