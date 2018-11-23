@@ -3,8 +3,6 @@
 
 <%= form_for(@post_report) do |f| %>
 
-  <%= render 'shared/error_messages', object: @post_report %>
-
   <%= f.label :topic, "Motivo de reporte" %>
 	<%= f.text_field :topic, class: 'form-control' %>
 	

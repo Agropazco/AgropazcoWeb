@@ -12,7 +12,7 @@ class PostReportsController < ApplicationController
 		@post_report = PostReport.find(params[:id])
 	end
 
-	def new
+	def new	
 		@post_report = PostReport.new
 		@post_report.post_id = params[:post_id]
 	end
@@ -33,9 +33,8 @@ class PostReportsController < ApplicationController
 			flash[:info] = "Gracias. Todos sus reportes serán tenidos en cuenta."
 			redirect_to root_url
 		else
-			puts @post_report.errors.first
-			puts "fail :C"
-			render 'new'
+			flash[:danger] = @post_report.errors.full_messages.first
+			redirect_to new_post_report_url(post_id: @post_report.post.id)
 		end
 	end
 
