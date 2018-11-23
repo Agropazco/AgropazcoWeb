@@ -4,6 +4,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   attr_accessor :reset_token
 
+  has_many :comments
   has_many :posts, dependent: :destroy
   has_many :post_reports, dependent: :destroy
   has_many :post_scores,

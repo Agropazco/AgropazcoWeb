@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+comment1:
+  post: apples
+  user: buyer2
+  body: "muy jugosas"
