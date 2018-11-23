@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-juanValdez = User.create!(name: "Juan Valdez",
+vendor1 = User.create!(name: "Juan Valdez",
              email: "jvaldez@mail.com",
              password:              "password",
              password_confirmation: "password",
@@ -23,7 +23,7 @@ buyer1=User.create!(name: "Comprador 1",
              activated_at: Time.zone.now)
 
 
-User.create!(name:  "Admin User",
+admin1=User.create!(name:  "Admin User",
              email: "admin@mail.com",
              password:              "password",
              password_confirmation: "password",
@@ -52,7 +52,7 @@ diego=User.create!(name:  "Diego Said Niquefa Velasquez",
                activated_at: Time.zone.now )
 end
 
-juanValdezPost1=juanValdez.posts.create!( title: "Apples", content: "Nice juicy apples, best price" )
+vendor1Post1=vendor1.posts.create!( title: "Apples", content: "Nice juicy apples, best price" )
 
 users = User.order(:created_at).take(6)
 50.times do 
@@ -61,6 +61,6 @@ users = User.order(:created_at).take(6)
   users.each{ |user| user.posts.create!(title: title , content: content)}
 end
 
-buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba1",message: "Tiene imagenes bajadas de internet")
-buyer1.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba2",message: "Aunque ahora tiene imagenes diferentes estas siguen siendo falsas")
-diego.post_reports.create!(post_id: juanValdezPost1.id,topic: "prueba3",message: "Tiene una imagen que no tiene que ver con el producto")
+buyer1.post_reports.create!(post_id: vendor1Post1.id,topic: "prueba1",message: "Tiene imagenes bajadas de internet")
+buyer1.post_reports.create!(post_id: vendor1Post1.id,topic: "prueba2",message: "Aunque ahora tiene imagenes diferentes estas siguen siendo falsas")
+diego.post_reports.create!(post_id: vendor1Post1.id,topic: "prueba3",message: "Tiene una imagen que no tiene que ver con el producto")

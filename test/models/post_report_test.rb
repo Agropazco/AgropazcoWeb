@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PostReportTest < ActiveSupport::TestCase
   def setup
-    @post_report = post_reports(:ronaldo_report_juanValdez)
+    @post_report = post_reports(:buyer2_report_of_post1_of_vendor1)
   end
 
   test "should be valid" do

@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-ronaldo_to_apples:
-  post_id: 1
-  scoring_user_id: 2
+buyer2_score_of_apples:
+  post: apples
+  scoring_user: buyer2
   score: 3

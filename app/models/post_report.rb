@@ -9,6 +9,9 @@ end
 class PostReport < ApplicationRecord
 	validates :message, :topic, :post_id, :user_id, presence: true
 	validates_with PostReportValidator
+	belongs_to :user
+	belongs_to :post
+
 	def post
 		Post.find(post_id)
 	end

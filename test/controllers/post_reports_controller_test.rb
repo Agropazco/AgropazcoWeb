@@ -3,9 +3,9 @@ require 'test_helper'
 class PostReportsControllerTest < ActionDispatch::IntegrationTest
 
 	def setup()
-		@user=users(:messi)
-		@admin_user=users(:master)
-		@post_report=post_reports(:ronaldo_report_juanValdez)
+		@user=users(:buyer1)
+		@admin_user=users(:admin1)
+		@post_report=post_reports(:buyer2_report_of_post1_of_vendor1)
 	end
 
 	test "show should work for admin" do

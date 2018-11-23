@@ -5,7 +5,12 @@ class User < ApplicationRecord
   attr_accessor :reset_token
 
   has_many :posts, dependent: :destroy
-  has_many :post_reports
+  has_many :post_reports, dependent: :destroy
+  has_many :post_scores,
+      class_name: "PostScore",
+      primary_key: "id",
+      foreign_key: "scoring_user_id",
+      dependent: :destroy
 
   enum role: {admin:0, buyer:1, vendor:2}
 

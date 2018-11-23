@@ -2,12 +2,13 @@ require 'test_helper'
 
 class PostInterfaceTest < ActionDispatch::IntegrationTest
   def setup 
-    @user = users(:valdez)
+    @user = users(:vendor1)
   end
+
   test "micropost interface" do 
-    
     log_in_as(@user)
     get root_path
+    puts "#{@user.name} has #{@user.posts.count} posts"
     assert_select 'div.pagination'
     #Invalid submission
     assert_no_difference 'Post.count' do
@@ -30,16 +31,17 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
       delete post_path(first_post)
     end 
     #Visit different user ( no delete links) 
-    get user_path(users(:messi))
+    get user_path(users(:buyer1))
     assert_select 'a' , text: 'delete' , count: 0 
   end 
+
   test "micropost sidebar count" do 
     log_in_as(@user)
     get root_path 
     num_posts = @user.posts.count
     assert_match "#{num_posts} posts", response.body
     #User with zero posts 
-    other_user = users(:ronaldo)
+    other_user = users(:buyer2)
     log_in_as(other_user)
     get root_path 
     assert_match "0 posts", response.body

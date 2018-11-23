@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-master:
+admin1:
   name: Master Chris
   email: mchris@mail.com
   password_digest: <%= User.digest('password') %>
@@ -8,7 +8,7 @@ master:
   activated: true
   activated_at: <%= Time.zone.now %>
 
-messi:
+buyer1:
   name: Lionel Messi
   email: lmessi@mail.com
   password_digest: <%= User.digest('password') %>
@@ -16,21 +16,19 @@ messi:
   activated: true
   activated_at: <%= Time.zone.now %>
 
-valdez:
-  id: 3
-  name: Juan Valdez
-  email: jvaldez@mail.com
-  password_digest: <%= User.digest('password') %>
-  role: 2
-  activated: true
-  activated_at: <%= Time.zone.now %>
-
-ronaldo:
-  id: 4
+buyer2:
   name: Cristiano Ronaldo
   email: cronaldo@mail.com
   password_digest: <%= User.digest('password') %>
   role: 1
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+vendor1:
+  name: Juan Valdez
+  email: jvaldez@mail.com
+  password_digest: <%= User.digest('password') %>
+  role: 2
   activated: true
   activated_at: <%= Time.zone.now %>
 
@@ -42,7 +40,7 @@ unactivated_user:
   activated: false 
 
 <% 70.times do |n| %>
-user_<%= n %>:
+random_user_<%= n %>:
   name:  <%= "User #{n}" %>
   email: <%= "user-#{n}@mail.com" %>
   password_digest: <%= User.digest('password') %>

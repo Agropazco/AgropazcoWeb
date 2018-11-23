@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user       = users(:messi)
-    @other_user = users(:ronaldo)
+    @user       = users(:buyer1)
+    @other_user = users(:buyer2)
   end
 
   test "should redirect edit when not logged in" do
