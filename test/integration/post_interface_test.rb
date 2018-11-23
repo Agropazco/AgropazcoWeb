@@ -29,14 +29,21 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url 
     follow_redirect!
     assert_match content, response.body 
-    #Delete post 
+  
+   
+	 	# Post show page	
+    first_post = @user.posts.paginate(page:1).first 
+		assert_select "a[href=?]", post_path(first_post)
+		get post_path(first_post)
+		assert_template "posts/show"
+ 
+		#Delete post 
     assert_select 'a' , text: 'Eliminar'
     assert_select 'a' , text: 'Reportar' , count: 0 
-    first_post = @user.posts.paginate(page:1).first 
-    assert_difference 'Post.count' , -1 do 
+		assert_difference 'Post.count' , -1 do 
       delete post_path(first_post)
     end 
-    #Visit different user
+   #Visit different user
     get user_path(users(:vendor2))
     assert_select 'a' , text: 'Eliminar' , count: 0 
     assert_select 'a' , text: 'Reportar'

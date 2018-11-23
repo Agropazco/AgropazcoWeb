@@ -3,7 +3,7 @@
     
     <%= link_to gravatar_for(post.user, size: 50), post.user %>
     <span class="user"><%= link_to post.user.name, post.user%></span>
-    <span class="title"><%= post.title%></span>
+    <span class="title"><%= link_to post.title, post%></span>
     <span class= "content">
         <%= post.content %>
         <%= image_tag post.picture.url if post.picture?%>
