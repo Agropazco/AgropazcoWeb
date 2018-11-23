@@ -7,6 +7,9 @@
         <li class="link"><%= link_to "Municipios top", root_path,class:"link2" %></li>
         <li class="link"><%= link_to "Lo nuevo", root_path,class:"link2" %></li>
         <li class="link"><%= link_to "Ayuda", root_path,class:"link2" %></li>
+        <% if logged_in? && current_user.admin? %>
+        <li class="link"><%= link_to "Reportes", post_reports_url , class: "link2"%></li>
+        <%end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
