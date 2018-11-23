@@ -7,7 +7,8 @@ class UserTest < ActiveSupport::TestCase
             name: "Neymar Santos",
             email: "asdfadsfnsantos@gmail.com",
             password: "12345679",
-            password_confirmation: "12345679")
+            password_confirmation: "12345679",
+            role: :vendor)
   end
 
   test "should be valid" do
