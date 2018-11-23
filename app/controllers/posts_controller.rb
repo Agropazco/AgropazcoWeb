@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     
     private 
         def post_params
-            params.require(:post).permit(:title, :content)
+            params.require(:post).permit(:title, :content, :picture)
         end
         def correct_user 
             @post = current_user.posts.find_by(id: params[:id])

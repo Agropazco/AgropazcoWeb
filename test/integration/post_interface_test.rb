@@ -9,6 +9,7 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get root_path
     assert_select 'div.pagination'
+    assert_select 'input[type=file]'
     #Invalid submission
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { title: "", content: "" }}
@@ -17,9 +18,14 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
     #Valid submission
     title= "title" 
     content = "example content"
+    picture = fixture_file_upload('test/fixtures/tomates.jpeg','image/jpeg')
     assert_difference 'Post.count' , 1 do 
-      post posts_path , params: { post: {title: title , content: content}}
+      post posts_path , params: { post: {title: title , 
+                                  content: content,
+                                  picture: picture }}
     end 
+    post = assigns(:post)
+    assert post.picture?
     assert_redirected_to root_url 
     follow_redirect!
     assert_match content, response.body 

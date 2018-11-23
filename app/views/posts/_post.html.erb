@@ -4,7 +4,10 @@
     <%= link_to gravatar_for(post.user, size: 50), post.user %>
     <span class="user"><%= link_to post.user.name, post.user%></span>
     <span class="title"><%= post.title%></span>
-    <span class= "content"><%= post.content %></span>
+    <span class= "content">
+        <%= post.content %>
+        <%= image_tag post.picture.url if post.picture?%>
+    </span>
     <span class= "timestamp">
         Publicado hace <%= time_ago_in_words (post.created_at) %>. 
         <% if current_user?(post.user) %>
