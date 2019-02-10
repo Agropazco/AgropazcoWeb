@@ -100,7 +100,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Post.all
+    Post.where("user_id = ?", id)
   end
   
   private

@@ -14,5 +14,17 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-  
+
+	def impact
+	end
+
+	def partners
+	end
+
+	def terms
+	end
+
+	def posts
+	end
+
 end
