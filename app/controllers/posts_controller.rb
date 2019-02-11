@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @comment = current_user.comments.new
 	end		
 
+	def index
+		@feed_items = Post.paginate(page: params[:page], :per_page => 10)
+	end
+
 	def create
 		@post = current_user.posts.build(post_params)
 		if @post.save
