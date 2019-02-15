@@ -1,5 +1,10 @@
-<% provide(:title, 'Todos los usuarios') %>
-<h1>Todos los usuarios</h1>
+<% if @user.admin? %>
+  <% provide(:title, 'Todos los usuarios') %>
+  <h1>Todos los usuarios</h1>
+<% else %>
+  <% provide(:title, 'Agenda de vendedores') %>
+  <h1>Agenda de vendedores</h1>
+<% end %>
 
 <%= will_paginate %>
 
