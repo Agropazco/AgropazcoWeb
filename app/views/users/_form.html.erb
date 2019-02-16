@@ -10,8 +10,8 @@
     <%= f.email_field :email, class: 'form-control' %>
 
     <%= f.label :role, "Tipo de cuenta" %>
-    <%= f.select :role, [["Comprador",:buyer], ["Vendedor",:vendor]], {:selected=> "Comprador"}, class: 'form-control' %>  
-  
+    <%= f.select :role, [["Comprador",:buyer], ["Vendedor",:vendor]], {:selected=> "Comprador"}, class: 'form-control' %>
+
   <% end %>
 
   <%= f.label :password, "Contraseña" %>
@@ -20,6 +20,9 @@
   <%= f.label :password_confirmation, "Confirmar contraseña" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+  <% if locals[:parent] == :edit %>
+      
+  <% end %>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
-

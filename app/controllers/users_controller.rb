@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
     if (@user.buyer? or @user.vendor?) and @user.save
       @user.send_activation_email
       flash[:info] = "Por favor revise su correo electrónico para activar su cuenta."
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role, :tel, :tel_op, :address, :city)
     end
 
     def update_user_params
