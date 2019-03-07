@@ -12,14 +12,28 @@
  </head>
   <body>
     <%= render 'layouts/header' %>
-    <div id="bodyOfBody">
-      <div class="container">
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
-        <% end %>
-        <%= yield %>
+    <% if logged_in? %>
+
+      <div id="bodyOfBody">
+        <div class="container">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
-    </div>
+
+    <%else%>
+      <div id="alternateBody">
+        <div class="container">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    <%end%>
+
     <%= render 'layouts/footer' %>
     <!--<%= debug(params) if Rails.env.development? %> -->
   </body>

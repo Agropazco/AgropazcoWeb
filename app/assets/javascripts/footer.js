@@ -5,6 +5,10 @@ $(document).on('turbolinks:load', function () {
 		var siteContent = $('#bodyOfBody');
 		var siteContentHeight = siteContent.height();
 		var siteContentWidth = siteContent.width();
+
+		var siteContent = $('#alternateBody');
+		var siteContentHeight = siteContent.height();
+		var siteContentWidth = siteContent.width();
 	
 		var siteFooter = $('#footer');
 		var siteFooterHeight = siteFooter.height();

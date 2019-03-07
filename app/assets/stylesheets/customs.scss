@@ -22,11 +22,7 @@ azul chevere  #5DA2D5
 html, body {
   margin: 0px;
   padding-top: 60px;
-  /* background-color: #90CCF4; */
-  background: url(bg2.jpg) #90CCF4;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #90CCF4;
   /* position: relative; */
   font-family: 'Ubuntu', sans-serif;
 }
@@ -188,6 +184,28 @@ p {
   min-height: 100vh;
   padding-top: 65px;
   margin-top: -60px;
+  background: url(bg3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: #000 0 7px 35px 0;
+  -moz-box-shadow: #000 0 7px 35px 0;
+  box-shadow: #000 0 7px 35px 0;
+
+}
+
+#alternateBody{
+  padding:  0 0 50px 0;
+  min-height: 100%;
+  min-height: 100vh;
+  padding-top: 65px;
+  margin-top: -60px;
+  background: url(bg1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   z-index: 1;
   -webkit-box-shadow: #000 0 7px 35px 0;
