@@ -79,35 +79,60 @@ p {
   line-height: 1.7em;
 }
 
-.typewriter h1 {
-  font-size: 2em;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  margin-bottom: 30px;
-  letter-spacing: .05em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+.css-typing p {
+  display: inline-block;
+  border-right: .15em solid orange;
+  // font-family: "Courier";
+  font-size: 1.2em;
+  font-weight: normal;
+  text-align: center;  
+  white-space: nowrap;
+  overflow: hidden;
+}
+.css-typing p:nth-child(1) {
+  width: 26.6em;
+  opacity: 0;
+  -webkit-animation: type3 4s steps(60, end), blink .5s step-end infinite alternate;
+  animation: type3 4s steps(60, end), blink .5s step-end infinite alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
-
-
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+}
 
 /* header */
-
 .navbar, .navbar-fixed-top{
   /*background-color: #F3D250;*/
   background: (linear-gradient(yellow,rgb(248, 176, 42)));
