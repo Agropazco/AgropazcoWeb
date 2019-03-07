@@ -6,10 +6,8 @@ $(document).on('turbolinks:load', function () {
 		var siteContentHeight = siteContent.height();
 		var siteContentWidth = siteContent.width();
 
-		var siteContent = $('#alternateBody');
-		var siteContentHeight = siteContent.height();
-		var siteContentWidth = siteContent.width();
-	
+		var siteContent2 = $('#alternateBody');
+
 		var siteFooter = $('#footer');
 		var siteFooterHeight = siteFooter.height();
 		var siteFooterWidth = siteFooter.width();
@@ -19,6 +17,7 @@ $(document).on('turbolinks:load', function () {
 		console.log('Footer Height = ' + siteFooterHeight + 'px');
 		console.log('Footer Width = ' + siteFooterWidth + 'px');
 		siteContent.css({"margin-bottom" : siteFooterHeight + 50});
+		siteContent2.css({"margin-bottom" : siteFooterHeight + 50});
 		
 	};
 
