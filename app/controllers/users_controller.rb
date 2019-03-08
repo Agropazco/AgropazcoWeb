@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "Usiario borrado satisfactoriamente"
+    flash[:success] = "Usuario borrado satisfactoriamente"
     redirect_to users_url
   end
 
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     end
 
     def update_user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation, :tel, :tel_op, :address, :city)
     end
 
     def correct_user
