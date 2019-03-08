@@ -1,14 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*colores
-Rosa          #F78888
-Amarillo      #F3D250
-balcusco      #ECECEC
-azul claro    #90CCF4
-azul chevere  #5DA2D5
-*/
-
+$rosa: #F78888;
+$amarillo: #F3D250;
+$gris-claro: #ECECEC;
+$azul-claro: #90CCF4;
+$azul: #5DA2D5;
+$titulos: #1C9B45;
+$datos: $gray-light;
 /* mixins, variables, etc. */
 
 @mixin box_sizing {
@@ -22,7 +21,7 @@ azul chevere  #5DA2D5
 html, body {
   margin: 0px;
   padding-top: 60px;
-  background-color: #90CCF4;
+  background-color: $azul-claro;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -48,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  color: green;
+  color: $titulos;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -56,7 +55,7 @@ h1 {
 }
 
 h2 {
-  color: green;
+  color: $titulos;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -66,7 +65,7 @@ h2 {
 }
 
 h3 {
-  color: green;
+  color: $titulos;
 }
 
 p {
@@ -78,9 +77,9 @@ p {
 /* header */
 
 .navbar, .navbar-fixed-top{
-  background-color: #F3D250;
+  background-color: $amarillo;
   color: white;
-  border-bottom: solid #F78888;
+  border-bottom: solid $rosa;
 }
 
 #barra .link2{
@@ -97,11 +96,11 @@ p {
 
 .link, #barra .link2{
   text-decoration:none;
-  color: #5DA2D5;
+  color: $azul;
   font-weight: bold;
   &:hover{
-    background-color: #5DA2D5;
-    color: #ECECEC;
+    background-color: $azul;
+    color: $gris-claro;
   }
 }
 
@@ -163,7 +162,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  color: #5DA2D5;
+  color: $azul;
   display: block;
   justify-content: center;
   text-align: center;
@@ -186,12 +185,12 @@ h6 {
 #items-footer #link {
   text-decoration: none;
   list-style: none;
-  color: #F78888;
+  color: $rosa;
   display: block;
   margin:0 auto;
   &:hover {
     text-decoration: none;
-    color: #5DA2D5;
+    color: $azul;
     background-color: #2A2A2A
   }
 }
@@ -309,12 +308,13 @@ input {
 #titleP{
   text-decoration: none;
   font-weight: bold;
+  font-size: 20px;
 }
 .posts {
   list-style : none;
   padding: 15px;
   border-bottom: 1px solid;
-  border-color: #F78888;  
+  border-color: $rosa;
   li{
     padding: 10px 0;
     border-top: 1pz slid #e8e8e8;
@@ -335,7 +335,7 @@ input {
     margin: 0 0 25px;
     overflow: hidden;
     padding: 20px;
-    background-color: #ECECEC;
+    background-color: $gris-claro;
     border: 2px solid #afcde3;
     border-radius: 10px;
     img{
@@ -359,8 +359,26 @@ input {
     background-color: #F4C4C4;
     border-radius: 10px;
     font-size: 110%;
-    color: #F78888;
+    color: $rosa;
     font-weight: bold;
+  }
+  h3{
+    font-size: 20px;
+  }
+}
+.userData{
+  display: inline-block;
+}
+.miniData{
+  h3{
+    font-size: 20px;
+    color: $titulos;
+    margin: 0px;
+  }
+  .content{
+    color: $datos;
+    font-weight: bold;
+    padding: 0px 0px 10px 0px;
   }
 }
 aside {

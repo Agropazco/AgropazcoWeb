@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
     if (@user.buyer? or @user.vendor?) and @user.save
       @user.send_activation_email
       flash[:info] = "Por favor revise su correo electrónico para activar su cuenta."
@@ -51,17 +52,17 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "Usiario borrado satisfactoriamente"
+    flash[:success] = "Usuario borrado satisfactoriamente"
     redirect_to users_url
   end
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role, :tel, :tel_op, :address, :city)
     end
 
     def update_user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation, :tel, :tel_op, :address, :city)
     end
 
     def correct_user
