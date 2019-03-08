@@ -55,7 +55,6 @@ h1 {
 }
 
 h2 {
-  color: $titulos;
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -181,8 +180,9 @@ p {
   min-height: 100vh;
   padding-top: 65px;
   margin-top: -60px;
-  background: url(bg3.jpg);
+  background: url(https://i.imgur.com/J8NvY17.jpg);
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -190,7 +190,6 @@ p {
   -webkit-box-shadow: #000 0 7px 35px 0;
   -moz-box-shadow: #000 0 7px 35px 0;
   box-shadow: #000 0 7px 35px 0;
-
 }
 
 #alternateBody{
@@ -199,7 +198,7 @@ p {
   min-height: 100vh;
   padding-top: 65px;
   margin-top: -60px;
-  background: url(bg1.jpg);
+  background: url(https://i.imgur.com/bwh45ym.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -208,7 +207,6 @@ p {
   -webkit-box-shadow: #000 0 7px 35px 0;
   -moz-box-shadow: #000 0 7px 35px 0;
   box-shadow: #000 0 7px 35px 0;
-
 }
 
 .contactenos textarea{
