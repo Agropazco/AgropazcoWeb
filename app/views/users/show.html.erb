@@ -8,11 +8,11 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <% if @user.id==current_user.id %>
-      <h3>
-          <%= link_to "Editar datos", edit_user_path(current_user), id:"titleP" %>
-      </h3>
-      <% end %>
+      <%if logged_in? and @user.id==current_user.id %>
+        <h3>
+            <%= link_to "Editar datos", edit_user_path(current_user), id:"titleP" %>
+        </h3>
+      <%end%>
     </section>
     <section class="userData">
       <div class = "miniData">
