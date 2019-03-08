@@ -73,11 +73,62 @@ p {
   line-height: 1.7em;
 }
 
+.css-typing p {
+  display: inline-block;
+  border-right: .15em solid orange;
+  // font-family: "Courier";
+  font-size: 1.2em;
+  font-weight: normal;
+  text-align: center;  
+  white-space: nowrap;
+  overflow: hidden;
+}
+.css-typing p:nth-child(1) {
+  width: 26.6em;
+  opacity: 0;
+  -webkit-animation: type3 4s steps(60, end), blink .5s step-end infinite alternate;
+  animation: type3 4s steps(60, end), blink .5s step-end infinite alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+}
 
 /* header */
-
 .navbar, .navbar-fixed-top{
-  background-color: $amarillo;
+  background: (linear-gradient(yellow,rgb(248, 176, 42)));
   color: white;
   border-bottom: solid $rosa;
 }
@@ -130,6 +181,28 @@ p {
   min-height: 100vh;
   padding-top: 65px;
   margin-top: -60px;
+  background: url(bg3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: #000 0 7px 35px 0;
+  -moz-box-shadow: #000 0 7px 35px 0;
+  box-shadow: #000 0 7px 35px 0;
+
+}
+
+#alternateBody{
+  padding:  0 0 50px 0;
+  min-height: 100%;
+  min-height: 100vh;
+  padding-top: 65px;
+  margin-top: -60px;
+  background: url(bg1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   z-index: 1;
   -webkit-box-shadow: #000 0 7px 35px 0;
