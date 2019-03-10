@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    if @user && @user.admin? 
+    if @user.admin? 
       @users = User.where(activated: true).paginate(page: params[:page])
     else
       @users = User.where("role = :role and activated = :activated", { role: "2", activated: true }).paginate(page: params[:page])
