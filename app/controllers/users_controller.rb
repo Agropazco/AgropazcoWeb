@@ -2,13 +2,13 @@ class UsersController < ApplicationController
 
   include SessionsHelper
 
-  before_action :logged_in_user, only: [:sellerIndex, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   def index
     @user = current_user
-    if @user.admin? 
+    if @user && @user.admin? 
       @users = User.where(activated: true).paginate(page: params[:page])
     else
       @users = User.where("role = :role and activated = :activated", { role: "2", activated: true }).paginate(page: params[:page])

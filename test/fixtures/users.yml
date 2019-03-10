@@ -60,7 +60,7 @@ random_user_<%= n %>:
   name:  <%= "User #{n}" %>
   email: <%= "user-#{n}@mail.com" %>
   password_digest: <%= User.digest('password') %>
-  role: 1
+  role: <%= "#{n%2+1}" %>
   activated: true
   activated_at: <%= Time.zone.now %>
 <% end %>
