@@ -1,0 +1,13 @@
+<%= provide(:title, "Contacta al vendedor") %>
+
+<%= form_for(@buy_notification) do |f| %>
+	
+	<%= f.label :message, "Mensaje" %>
+	<%= f.text_area :message, class: 'form-control' %>
+	
+	<%= f.hidden_field :post_id, value: "#{@buy_notification.post_id}" %>
+	
+	<%= f.hidden_field :seller_id, value: "#{@buy_notification.seller_id}" %>
+	
+	<%= f.submit "Enviar", class: "btn btn-primary" %>
+<% end %>	

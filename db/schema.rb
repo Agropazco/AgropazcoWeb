@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_003559) do
+ActiveRecord::Schema.define(version: 2019_03_10_183524) do
+
+  create_table "buy_notifications", force: :cascade do |t|
+    t.string "message"
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_buy_notifications_on_buyer_id"
+    t.index ["post_id"], name: "index_buy_notifications_on_post_id"
+    t.index ["seller_id"], name: "index_buy_notifications_on_seller_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"

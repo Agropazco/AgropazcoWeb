@@ -424,7 +424,16 @@ input {
     margin-right: 10px;
     margin-top: 5px; 
   }
-  #delite-report{
+  #buy-notification{
+    text-decoration: none;
+    padding: 3px 15px;
+    background-color: #A9E9FC;
+    border-radius: 10px;
+    font-size: 110%;
+    color: $azul;
+    font-weight: bold;
+  }
+	#delite-report{
     text-decoration: none;
     padding: 3px 15px;
     background-color: #F4C4C4;

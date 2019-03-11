@@ -30,6 +30,15 @@ admin1=User.create!(name:  "Admin User",
              activated: true,
              activated_at: Time.zone.now)
 
+chaves=User.create!(name: "Sebastian Chaves",
+	           email: "jschavesr@gmail.com",
+             password:              "password",
+             password_confirmation: "password",
+             role: :admin,
+             activated: true,
+             activated_at: Time.zone.now)
+
+
 diego=User.create!(name:  "Diego Said Niquefa Velasquez",
              email: "niquefa.diego@gmail.com",
              password:              "pniquefa",

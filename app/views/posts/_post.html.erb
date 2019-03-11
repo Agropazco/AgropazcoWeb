@@ -19,6 +19,10 @@
                     new_post_report_url(post_id: post.id),
                     id:"delite-report",
                     method: :get %>
-        <%end%>
+            <%= link_to "Quiero Comprar!" ,
+                    new_buy_notification_url(post_id: post.id, seller_id: post.user.id),
+                    id:"buy-notification",
+                    method: :get %>
+       <%end%>
     </span>
 </ol>
