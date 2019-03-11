@@ -1,13 +1,21 @@
 class ConversationsController < ApplicationController
 
   def index
+    user = current_user
+    if user.nil?
+      flash[:danger] = "Inicie sessión para ver mensajes"
+			redirect_to login_path
+			return
+		end
+
     @users = User.all
     @conversations = Conversation.all
   end
 
   def create
     user = current_user
-		if user.nil?
+    if user.nil?
+      flash[:danger] = "Inicie sessión para ver mensajes"
 			redirect_to login_path
 			return
 		end
