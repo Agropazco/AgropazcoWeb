@@ -5,6 +5,7 @@
       <ul class="nav navbar-nav">
         <li class="link"><%= link_to "Publicaciones", posts_path,class:"link2" %></li>
         <li class="link"><%= link_to "Municipios top", root_path,class:"link2" %></li>
+        <li class="link"><%= link_to "Mensajes", conversations_path,class:"link2" %></li>
         <li class="link"><%= link_to "Lo nuevo", root_path,class:"link2" %></li>
         <li class="link"><%= link_to "Ayuda", root_path,class:"link2" %></li>
         <% if logged_in? && current_user.admin? %>

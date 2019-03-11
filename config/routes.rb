@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :post_reports, only:[:show, :index, :new, :create, :destroy]
   resources :comments, only: [:create]
 
+  resources :conversations do
+    resources :messages
+  end
+
 	root "static_pages#home"
 	get '/help',       to: 'static_pages#help'
 	get '/about',      to: 'static_pages#about'
