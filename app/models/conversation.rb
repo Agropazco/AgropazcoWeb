@@ -1,8 +1,23 @@
+
+class ConversationValidator < ActiveModel::Validator
+	def validate(record)
+		return unless record.errors.blank?
+		if record.sender.nil? || record.recipient.nil?
+			record.errors[:base] << "Uno de los usuarios de la conversación no es válido"
+		elsif record.sender_id == record.recipient_id
+			record.errors[:base] << "Un usuario no establecer una conversación con él mismo"
+		end
+	end
+end
+
+
 class Conversation < ActiveRecord::Base
 
   belongs_to :sender, :foreign_key => :sender_id, class_name: 'User'
   belongs_to :recipient, :foreign_key => :recipient_id, class_name: 'User'
 
+  validates :sender, :recipient, presence: true
+  validates_with ConversationValidator
   has_many :messages, dependent: :destroy
 
   validates_uniqueness_of :sender_id, :scope => :recipient_id

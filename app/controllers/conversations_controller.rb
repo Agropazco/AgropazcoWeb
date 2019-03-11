@@ -6,6 +6,12 @@ class ConversationsController < ApplicationController
   end
 
   def create
+    user = current_user
+		if user.nil?
+			redirect_to login_path
+			return
+		end
+
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
       @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
     else

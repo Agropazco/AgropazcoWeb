@@ -12,12 +12,6 @@ class User < ApplicationRecord
       primary_key: "id",
       foreign_key: "scoring_user_id",
       dependent: :destroy
-	has_many :received_notification,
-			class_name: 'BuyNotification',
-			foreign_key: "seller_id"
-	has_many :sent_notification,
-			class_name: 'BuyNotification',
-			foreign_key: "buyer_id"
 
   enum role: {admin:0, buyer:1, vendor:2}
 

@@ -27,7 +27,6 @@ class PostReportsController < ApplicationController
 
 		params = post_report_params
 		params[:user_id] = current_user.id
-		puts params
 		@post_report = PostReport.new(params)
 		if @post_report.save
 			flash[:info] = "Gracias. Todos sus reportes serán tenidos en cuenta."

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :account_activations, only: [:edit]
-	resources :buy_notifications, only: [:new, :create, :index, :show, :destroy]
 	resources :password_resets, only: [:new, :create, :edit, :update]
   resources :posts, only: [:show, :index, :create, :destroy]
   resources :post_reports, only:[:show, :index, :new, :create, :destroy]
@@ -19,8 +18,8 @@ Rails.application.routes.draw do
   get '/partners',   to: 'static_pages#partners'
   get '/terms',      to: 'static_pages#terms'
   
-  get   '/contact',    to: 'messages#new'
-  post  '/contact',    to: 'messages#create'
+  get   '/contact',    to: 'email_messages#new'
+  post  '/contact',    to: 'email_messages#create'
 
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'

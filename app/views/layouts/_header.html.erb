@@ -9,12 +9,17 @@
         <li class="link"><%= link_to "Lo nuevo", root_path,class:"link2" %></li>
         <li class="link"><%= link_to "Ayuda", root_path,class:"link2" %></li>
         <% if logged_in? && current_user.admin? %>
-        <li class="link"><%= link_to "Reportes", post_reports_url , class: "link2"%></li>
+          <li class="link"><%= link_to "Reportes", post_reports_url , class: "link2"%></li>
         <%end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li class="link"><%= link_to "Usuarios", users_path, class:"link2" %></li>
+          <% if current_user.admin? %>
+            <li class="link"><%= link_to "Usuarios", users_path, class:"link2" %></li>
+          <% else %>
+            <li class="link"><%= link_to "Vendedores", users_path, class:"link2" %></li>
+          <% end %>
+          
           <li class="dropdown">
             <a href="#" class="link2" data-toggle="dropdown">
               Cuenta <b class="caret"></b>

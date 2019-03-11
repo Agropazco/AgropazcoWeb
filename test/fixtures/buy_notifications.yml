@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-notification1:
-  message: "Quiero comprar manzanitas" 
-  buyer: buyer1
-  seller: vendor1
-  post: apples

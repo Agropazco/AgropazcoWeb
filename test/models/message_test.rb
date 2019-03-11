@@ -1,35 +1,31 @@
 require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
-  test 'responds to name, email, subject and body' do 
-    msg = Message.new
+	def setup
+		@message = messages(:message1)
+	end
 
-    assert msg.respond_to?(:name),    'does not respond to :name'
-    assert msg.respond_to?(:email),   'does not respond to :email'
-    assert msg.respond_to?(:subject), 'does not respond to :subject'
-    assert msg.respond_to?(:body),    'does not respond to :body'
-  end
+	test "should be valid" do
+		assert @message.valid?
+	end
 
-  test 'should be valid when all attributes are set' do
-    attrs = { 
-      name: 'stephen',
-      email: 'stephen@example.org',
-      subject: 'loquesea',
-      body: 'kthnxbai'
-    }
+	test "message should be not be nil" do
+		@message.body = nil
+		assert_not @message.valid?
+	end
 
-    msg = Message.new attrs
-    assert msg.valid?, 'should be valid'
-  end
+	test "message should not be blank" do
+		@message.body = ""
+		assert_not @message.valid?
+	end
 
-  test 'name, email and body are required by law' do
-    msg = Message.new
+	test "user should be not be nil" do
+		@message.user_id = nil
+		assert_not @message.valid?
+	end
 
-    refute msg.valid?, 'Blank Mesage should be invalid'
-
-    assert_match /blank/, msg.errors[:name].to_s
-    assert_match /blank/, msg.errors[:email].to_s
-    assert_match /blank/, msg.errors[:subject].to_s
-    assert_match /blank/, msg.errors[:body].to_s
-  end
+	test "conversation id should not be nil" do
+		@message.conversation_id = ""
+		assert_not @message.valid?
+	end
 end

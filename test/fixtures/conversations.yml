@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+conversation1:
+  sender: buyer1
+  recipient: vendor1
