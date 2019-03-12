@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])	
     @comments = @post.comments
     @comment = current_user.comments.new
-	end		
+	end
 
 	def index
 		@feed_items = Post.paginate(page: params[:page], :per_page => 10)
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 	def create
 		@post = current_user.posts.build(post_params)
 		if @post.save
-			flash[:success] = "Micropost created!"
+			flash[:success] = "Post creado!"
 			redirect_to root_url
 		else
 			@feed_items = [] 
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 	
 	def destroy 
 		@post.destroy 
-		flash[:success] = "Micropost deleted" 
+		flash[:success] = "Post borrado" 
 		redirect_back(fallback_location:root_url)
 	end 
 	
