@@ -3,4 +3,5 @@
 <p>Usuario que reporta: <%= link_to @post_report.user.name, @post_report.user %></p>
 <p>Asunto: <%= link_to @post_report.topic, "#"%><!-- TODO--></p>
 <p>Mensage: <%= @post_report.message%></p>
-<p><%= link_to "eliminar", @post_report, method: :delete, data: { confirm: "¿Está seguro?" } %></p>
+<p>Post: <%= link_to @post_report.post.title, @post_report.post %> </p>
+<p><%= link_to "eliminar reporte", @post_report, method: :delete, data: { confirm: "¿Está seguro?" } %></p>
