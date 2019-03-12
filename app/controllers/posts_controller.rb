@@ -3,9 +3,13 @@ class PostsController < ApplicationController
 	before_action :correct_user , only: :destroy 
 	
 	def show
-		@post = Post.find(params[:id])	
-    @comments = @post.comments
-    @comment = current_user.comments.new
+		@post = Post.find_by(id: params[:id])	
+		if @post.nil?
+			redirect_to root_url
+		else
+			@comments = @post.comments
+			@comment = current_user.comments.new
+		end
 	end
 
 	def index
@@ -24,7 +28,8 @@ class PostsController < ApplicationController
 	end
 	
 	def destroy 
-		@post.destroy 
+		puts "destroying post"
+		@post.destroy
 		flash[:success] = "Post borrado" 
 		redirect_back(fallback_location:root_url)
 	end 
@@ -34,7 +39,11 @@ class PostsController < ApplicationController
 			params.require(:post).permit(:title, :content, :picture)
 		end
 		def correct_user 
-			@post = current_user.posts.find_by(id: params[:id])
-			redirect_to root_url if @post.nil?
+			if current_user.admin?
+				@post = Post.find_by(id: params[:id])
+			else
+				@post = current_user.posts.find_by(id: params[:id])
+				redirect_to root_url if @post.nil?
+			end
 		end
 end
