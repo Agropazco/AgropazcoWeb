@@ -11,9 +11,10 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   test "index as non-admin should have only vendor users" do
     log_in_as(@user)
     get users_path
+    p User.count
     assert_template 'users/index'
     User.paginate(page: 1).each do |user|
-      if user.vendor?
+      if user.activated && user.vendor?
         assert_select 'a[href=?]', user_path(user), text: user.name
       else
         assert_select 'a[href=?]', user_path(user), text: user.name, count: 0

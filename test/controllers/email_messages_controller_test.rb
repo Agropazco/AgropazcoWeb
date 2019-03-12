@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MessagesControllerTest < ActionDispatch::IntegrationTest
+class EmailMessagesControllerTest < ActionDispatch::IntegrationTest
 
   test "GET new" do
     get contact_url
@@ -19,7 +19,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   test "POST create" do
     assert_difference 'ActionMailer::Base.deliveries.size', 1 do
       post contact_url, params: {
-        message: {
+        email_message: {
           name: 'cornholio',
           email: 'cornholio@example.org',
           subject: 'tema',
@@ -37,7 +37,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   test "invalid POST create" do
     post contact_url, params: {
-      message: { name: '', email: '', body: '' }
+      email_message: { name: '', email: '', body: '' }
     }
 
     assert_match /Name .* blank/, response.body

@@ -5,5 +5,11 @@
     | <%= link_to "eliminar", user, method: :delete,
       data: { confirm: "¿Está seguro?" } %>
   <% end %>
+
+  <% if user.id != current_user.id %>
+    <div class="item">
+      <%= link_to "Envíar mensaje", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
+    </div>
+  <% end %>
 </li>
 

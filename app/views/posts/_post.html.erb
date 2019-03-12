@@ -19,6 +19,17 @@
                     new_post_report_url(post_id: post.id),
                     id:"delite-report",
                     method: :get %>
-        <%end%>
+            <% if not current_user.nil? %>
+                <%= link_to "Contactar vendedor!" ,
+                    conversations_path(sender_id: current_user.id, recipient_id: post.user.id),
+                    id:"buy-notification",
+                    method: :post %>
+            <% else %>
+                <%= link_to "Ingrese para contactar vendedor!" ,
+                    login_path,
+                    id:"buy-notification",
+                    method: :get %>
+            <% end %>
+       <%end%>
     </span>
 </ol>

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MessageMailerTest < ActionMailer::TestCase
   test "contact" do
-    message = Message.new name: 'anna',
+    message = EmailMessage.new name: 'anna',
                           email: 'anna@example.org',
                           subject: 'tematica',
                           body: 'hello, how are you doing?'
