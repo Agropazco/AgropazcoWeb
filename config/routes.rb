@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/impact',     to: 'static_pages#impact'
   get '/partners',   to: 'static_pages#partners'
   get '/terms',      to: 'static_pages#terms'
+  get '/faq',        to: 'static_pages#faq'
   
   get   '/contact',    to: 'email_messages#new'
   post  '/contact',    to: 'email_messages#create'

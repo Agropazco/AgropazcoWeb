@@ -29,6 +29,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 	test "should get terms" do
 		get terms_url
 		assert_response :success
+  end
+  
+  test "should get faq" do
+		get faq_url
+		assert_response :success
 	end
 
 	

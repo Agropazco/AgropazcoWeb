@@ -19,7 +19,10 @@ class StaticPagesController < ApplicationController
 	end
 
 	def partners
-	end
+  end
+  
+  def faq
+  end
 
 	def terms
 	end
